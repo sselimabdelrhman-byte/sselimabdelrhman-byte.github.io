@@ -10,7 +10,7 @@
         .container { width: 95%; max-width: 800px; margin: 0 auto; padding: 15px; text-align: center }
         .box { background: #1a1a1a; padding: 25px; border-radius: 20px; border: 3px solid #FFD700; margin: 20px 0; box-shadow: 0 0 20px rgba(255,215,0,0.3) }
         #welcome { display: block }
-        #welcome img { width: 160px; height: 160px; border-radius: 50%; border: 5px solid #FFD700; margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 20px #FFD700 }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 5px solid #FFD700; margin: 0 auto 15px; object-fit: cover; box-shadow: 0 0 20px #FFD700; display: block }
         h1 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 10px #FFD700 }
         .verse { color: #fff; font-size: 1.2rem; margin: 20px 0; line-height: 1.9 }
         .king-name { color: #FFD700; font-size: 1.8rem; font-weight: bold; margin: 15px 0; text-shadow: 0 0 15px #FFD700 }
@@ -32,7 +32,7 @@
 <body>
     <div class="container">
         <div id="welcome" class="box">
-            <img src="Screenshot_20260506_000452_com.cloudgen.lolli.jpg" alt="Al King">
+            <img class="profile-img" src="king.jpg" alt="Al King">
             <h1>🕌 منصة Al King القرآنية 🕌</h1>
             <p class="king-name">أهلاً وسهلاً يا Al King 👑</p>
             <p class="verse">"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ"</p>
@@ -48,44 +48,35 @@
             <button onclick="backToWelcome()" style="background:#444;color:#FFD700">رجوع</button>
         </div>
         <div id="platform" class="box">
-            <img src="Screenshot_20260506_000452_com.cloudgen.lolli.jpg" alt="Al King" style="width:100px;height:100px;border-radius:50%;border:3px solid #FFD700;margin:0 auto 15px;display:block">
+            <img class="profile-img" src="king.jpg" alt="Al King" style="width:100px;height:100px">
             <h1>أهلاً بك يا Al King ✨</h1>
             <p style="color:white;text-align:center;margin-bottom:20px;font-size:1.1rem">مرحباً: <span id="userEmail"></span></p>
             
             <div class="section">
                 <h2>📖 معلومات عن القرآن الكريم</h2>
                 <div class="quran-stats">
-                    <div class="stat">
-                        <div class="stat-num">114</div>
-                        <p>سورة</p>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">6236</div>
-                        <p>آية</p>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">30</div>
-                        <p>جزء</p>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">60</div>
-                        <p>حزب</p>
-                    </div>
+                    <div class="stat"><div class="stat-num">114</div><p>سورة</p></div>
+                    <div class="stat"><div class="stat-num">6236</div><p>آية</p></div>
+                    <div class="stat"><div class="stat-num">30</div><p>جزء</p></div>
+                    <div class="stat"><div class="stat-num">60</div><p>حزب</p></div>
                 </div>
                 <ul>
-                    <li>أول ما نزل: اقرأ باسم ربك</li>
+                    <li>أول ما نزل: اقرأ باسم ربك الذي خلق</li>
                     <li>آخر ما نزل: واتقوا يوماً ترجعون فيه إلى الله</li>
                     <li>أطول سورة: البقرة 286 آية</li>
                     <li>أقصر سورة: الكوثر 3 آيات</li>
-                    <li>أطول آية: آية الدين في البقرة 282</li>
-                    <li>نزل في 23 سنة</li>
+                    <li>أطول آية: آية الدين البقرة 282</li>
+                    <li>نزل متفرقاً في 23 سنة</li>
+                    <li>عدد الكلمات: 77,439 كلمة</li>
+                    <li>عدد الحروف: 320,015 حرف</li>
                 </ul>
             </div>
 
             <div class="section">
                 <h2>🕋 أسماء القرآن الكريم</h2>
                 <p>1. القرآن - 2. الكتاب - 3. الفرقان - 4. الذكر - 5. النور<br>
-                   6. الهدى - 7. الشفاء - 8. الرحمة - 9. الموعظة - 10. الحق</p>
+                   6. الهدى - 7. الشفاء - 8. الرحمة - 9. الموعظة - 10. الحق<br>
+                   11. المبين - 12. العزيز - 13. المجيد - 14. البشير - 15. النذير</p>
             </div>
 
             <div class="section">
@@ -102,9 +93,9 @@
             <div class="section">
                 <h2>📚 السور المكية والمدنية</h2>
                 <p><strong style="color:#FFD700">المكية: 86 سورة</strong> - نزلت في مكة قبل الهجرة<br>
-                   تتكلم عن التوحيد والعقيدة وقصص الأنبياء<br><br>
+                   موضوعاتها: التوحيد، العقيدة، قصص الأنبياء، البعث والجزاء<br><br>
                    <strong style="color:#FFD700">المدنية: 28 سورة</strong> - نزلت في المدينة بعد الهجرة<br>
-                   تتكلم عن التشريع والأحكام والمعاملات</p>
+                   موضوعاتها: التشريع، الأحكام، المعاملات، الجهاد</p>
             </div>
 
             <div class="section">
@@ -116,7 +107,7 @@
                 <h2>🎯 رسالة خاصة لـ Al King</h2>
                 <p>الله يوفقك يا KING ويجعلك من أهل القرآن 👑<br>
                    اللي هم أهل الله وخاصته<br>
-                   خليك دايماً مع القرآن وهو هيكون صاحبك في الدنيا والآخرة</p>
+                   "خيركم من تعلم القرآن وعلمه"</p>
             </div>
 
             <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
