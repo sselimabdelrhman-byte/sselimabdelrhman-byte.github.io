@@ -3,67 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل دخول KING</title>
+    <title>منصة الكينج</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #000;
             font-family: 'Cairo', sans-serif;
+            color: #FFD700;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .login-container {
-            background: rgba(255,215,0,0.1);
-            border: 3px solid #FFD700;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 0 30px #FFD700;
-        }
-        h1 { color: #FFD700; margin-bottom: 30px; font-size: 2.5rem; }
-        input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #FFD700;
+        .page { display: none; padding: 20px; text-align: center; }
+        .active { display: block; }
+        .btn {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
             border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin: 15px;
+            cursor: pointer;
+        }
+        input {
+            width: 80%;
+            max-width: 400px;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
             background: #111;
             color: #FFD700;
             font-size: 1.1rem;
             text-align: center;
         }
-        button {
-            width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 10px;
-            background: #FFD700;
-            color: #000;
-            font-size: 1.3rem;
-            font-weight: 900;
-            cursor: pointer;
+        .king-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            margin: 20px 0;
+            box-shadow: 0 0 25px #FFD700;
         }
+        .card {
+            background: rgba(255,215,0,0.1);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 500px;
+        }
+        h1 { font-size: 2.5rem; margin: 20px 0; }
+        h2 { font-size: 1.8rem; margin: 15px 0; }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>👑 تسجيل دخول KING 👑</h1>
-        <input type="text" id="user" placeholder="Username">
-        <input type="password" id="pass" placeholder="Password">
-        <button onclick="login()">Enter Mission</button>
+    <!-- صفحة 1: الترحيب -->
+    <div id="welcome" class="page active">
+        <h1>👑 منصة الكينج 👑</h1>
+        <img src="king.jpg" alt="KING" class="king-img" onerror="this.style.display='none'">
+        <h2>أهلاً بيك في مملكة الكينج</h2>
+        <button class="btn" onclick="showPage('register')">تسجيل الدخول إلى منصة الكينج</button>
     </div>
+
+    <!-- صفحة 2: الفورم -->
+    <div id="register" class="page">
+        <h1>👑 تسجيل بيانات الكينج 👑</h1>
+        <input type="text" id="name" placeholder="الاسم">
+        <input type="number" id="age" placeholder="العمر">
+        <input type="text" id="location" placeholder="الموقع">
+        <input type="email" id="email" placeholder="البريد الإلكتروني">
+        <input type="password" id="password" placeholder="كلمة السر">
+        <br>
+        <button class="btn" onclick="login()">تسجيل الدخول</button>
+        <button class="btn" onclick="showPage('welcome')">رجوع</button>
+    </div>
+
+    <!-- صفحة 3: الموسوعة القرآنية -->
+    <div id="main" class="page">
+        <h1>📖 الموسوعة القرآنية 📖</h1>
+        <h2 id="welcomeUser"></h2>
+        
+        <div class="card" onclick="alert('قريباً: فهرس سور القرآن الكريم')">
+            <h2>📖 القرآن الكريم</h2>
+            <p>فاتحة المصحف + جميع السور</p>
+        </div>
+        
+        <div class="card" onclick="alert('قريباً: أذكار الصباح والمساء')">
+            <h2>🤲 الأذكار</h2>
+            <p>أذكار الصباح والمساء والنوم</p>
+        </div>
+        
+        <div class="card" onclick="alert('قريباً: السبحة الإلكترونية')">
+            <h2>📿 التسبيح</h2>
+            <p>سبحان الله والحمد لله والله أكبر</p>
+        </div>
+        
+        <div class="card" onclick="alert('قريباً: مواقيت الصلاة')">
+            <h2>🕌 مواقيت الصلاة</h2>
+            <p>حسب موقعك الجغرافي</p>
+        </div>
+        
+        <div class="card" onclick="alert('قريباً: الأدعية')">
+            <h2>🤍 الأدعية</h2>
+            <p>أدعية من القرآن والسنة</p>
+        </div>
+
+        <button class="btn" onclick="showPage('welcome')">تسجيل خروج</button>
+    </div>
+
     <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+        
         function login() {
-            let u = document.getElementById('user').value.trim().toUpperCase();
-            let p = document.getElementById('pass').value.trim();
-            if (u === 'ABDO' && p === '1') {
-                document.body.innerHTML = '<h1 style="color:#FFD700;text-align:center;margin-top:40vh;font-size:3rem;">أهلاً بالمحترفين 👑</h1>';
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let pass = document.getElementById('password').value;
+            
+            if(name && email && pass) {
+                document.getElementById('welcomeUser').innerText = 'مرحباً ' + name + ' 👑';
+                showPage('main');
             } else {
-                alert('بيانات غلط يا KING - انت كتبت: ' + u + ' / ' + p);
+                alert('املأ البيانات كلها يا KING');
             }
         }
     </script>
