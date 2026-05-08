@@ -3,794 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>مؤسسة Al King القرآنية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>👑 موسوعة الحضارة المصرية الملكية 👑</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --royal-navy: #0A1931;
+            --royal-gold: #FFD700;
+            --royal-gold-dark: #B8860B;
+            --royal-blue: #185ADB;
+            --royal-white: #F0F0F0;
+            --royal-silver: #C0C0C0;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box }
-        html { scroll-behavior: smooth }
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0a1628 100%);
-            color: #FFD700;
+            background: linear-gradient(135deg, var(--royal-navy) 0%, #16213E 50%, var(--royal-navy) 100%);
+            color: var(--royal-white);
             min-height: 100vh;
+            overflow-x: hidden
         }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(255,215,0,0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,215,0,0.03) 0%, transparent 50%);
-            z-index: -1;
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
+        .welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--royal-navy) 0%, #0F3460 100%);
+            display: flex; justify-content: center; align-items: center; z-index: 9999
         }
-        #welcome {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
+        .welcome-content {
+            text-align: center; padding: 60px; border-radius: 30px;
+            background: rgba(10, 25, 49, 0.95);
+            border: 8px solid var(--royal-gold);
+            box-shadow: 0 0 80px rgba(255, 215, 0, 0.4);
+            max-width: 900px; width: 90%
         }
-        .welcome-card {
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 40px 30px;
-            border-radius: 25px;
-            border: 5px solid #FFD700;
-            max-width: 900px;
-            width: 100%;
-            box-shadow: 0 0 40px rgba(255,215,0,0.4);
-            text-align: center;
+        .welcome-frame {
+            width: 280px; height: 280px; margin: 0 auto 30px;
+            border-radius: 50%; padding: 12px;
+            background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark), var(--royal-gold));
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.6)
         }
-        .welcome-card img {
-            width: 280px;
-            height: 280px;
-            border-radius: 20px;
-            border: 6px solid #FFD700;
-            box-shadow: 0 0 40px #FFD700;
-            margin-bottom: 25px;
-            object-fit: cover;
+        .welcome-frame img {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+            border: 6px solid var(--royal-navy)
         }
-        .welcome-card h1 {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            color: #FFD700;
-            font-weight: 900;
-            text-shadow: 0 0 15px rgba(255,215,0,0.5);
+        .welcome-title {
+            font-family: 'Amiri', serif; font-size: 3.5em; font-weight: 900;
+            color: var(--royal-gold); margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8)
         }
-        .welcome-card h2 {
-            font-size: 1.4rem;
-            margin-bottom: 18px;
-            color: #fff;
-            font-weight: 600;
-        }
-        .welcome-card p {
-            color: #FFD700;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 2;
+        .welcome-subtitle {
+            font-size: 1.8em; color: var(--royal-silver); margin-bottom: 40px;
+            line-height: 1.6
         }
         .welcome-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-            padding: 18px 60px;
-            border: none;
-            border-radius: 15px;
-            font-size: 1.3rem;
-            font-weight: 900;
-            cursor: pointer;
-            font-family: 'Cairo';
-            transition: 0.3s;
-            box-shadow: 0 5px 25px rgba(255,215,0,0.5);
+            background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark));
+            color: var(--royal-navy); border: none; padding: 20px 60px;
+            font-size: 1.5em; font-weight: 900; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease
         }
-        .welcome-btn:hover { 
-            transform: scale(1.08);
-            box-shadow: 0 8px 35px rgba(255,215,0,0.7);
+        .welcome-btn:hover {
+            transform: translateY(-5px); box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6)
         }
-        .welcome-btn:active { transform: scale(0.98); }
         #register {
-            display: none;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: none; min-height: 100vh; padding: 40px 20px;
+            background: linear-gradient(135deg, var(--royal-navy) 0%, #0F3460 100%)
         }
         .register-box {
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 35px 30px;
-            border-radius: 20px;
-            border: 4px solid #FFD700;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+            max-width: 600px; margin: 0 auto; background: rgba(10, 25, 49, 0.95);
+            padding: 50px; border-radius: 25px; border: 4px solid var(--royal-gold);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3)
         }
         .register-box h2 {
-            font-size: 1.7rem;
-            margin-bottom: 25px;
-            text-align: center;
-            color: #FFD700;
-            font-weight: 900;
+            font-family: 'Amiri', serif; font-size: 2.8em; color: var(--royal-gold);
+            text-align: center; margin-bottom: 40px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.6)
         }
-        .form-group { margin-bottom: 18px; }
+        .form-group { margin-bottom: 25px }
         .form-group label {
-            display: block;
-            color: #FFD700;
-            margin-bottom: 7px;
-            font-size: 0.95rem;
-            font-weight: 700;
+            display: block; color: var(--royal-gold); font-weight: 700;
+            margin-bottom: 10px; font-size: 1.2em
         }
-        input, select {
-            width: 100%;
-            padding: 13px;
-            background: #0a1628;
-            border: 2px solid #FFD700;
-            border-radius: 12px;
-            color: white;
-            font-size: 15px;
-            font-family: 'Cairo';
-            transition: 0.3s;
+        .form-group input, .form-group select {
+            width: 100%; padding: 15px 20px; border-radius: 12px;
+            border: 2px solid var(--royal-gold-dark); background: rgba(24, 90, 219, 0.1);
+            color: var(--royal-white); font-size: 1.1em; font-family: 'Cairo', sans-serif;
+            transition: all 0.3s ease
         }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #FFA500;
-            box-shadow: 0 0 15px rgba(255,215,0,0.4);
-            background: #1a2942;
+        .form-group input:focus, .form-group select:focus {
+            outline: none; border-color: var(--royal-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); background: rgba(24, 90, 219, 0.2)
         }
-        .error {
-            color: #ff5555;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-            font-weight: 600;
-        }
-        .email-verify {
-            background: #1a2942;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px solid #FFD700;
-            margin-top: 8px;
-            display: none;
-        }
-        .email-verify p {
-            color: #FFD700;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-        .verify-code {
-            display: flex;
-            gap: 8px;
-        }
-        .verify-code input {
-            flex: 1;
-            padding: 10px;
-            font-size: 1.3rem;
-            text-align: center;
-            letter-spacing: 5px;
-            font-weight: 900;
-        }
-        .verify-btn {
-            background: #FFD700;
-            color: #0a1628;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 900;
-            cursor: pointer;
-        }
+        .form-group input::placeholder { color: rgba(192, 192, 192, 0.6) }
+        .error { color: #FF6B6B; font-size: 0.9em; margin-top: 5px; display: none }
+        .error.show { display: block }
         .register-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: 900;
-            cursor: pointer;
-            margin-top: 20px;
-            font-family: 'Cairo';
-            box-shadow: 0 5px 25px rgba(255,215,0,0.4);
+            width: 100%; background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark));
+            color: var(--royal-navy); border: none; padding: 18px;
+            font-size: 1.4em; font-weight: 900; border-radius: 15px; cursor: pointer;
+            margin-top: 20px; box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease
         }
-        .register-btn:active { transform: scale(0.98); }
-        .register-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .register-btn:hover {
+            transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6)
         }
-        .navbar {
-            display: none;
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 12px 0;
-            border-bottom: 3px solid #FFD700;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 999;
-            box-shadow: 0 3px 15px rgba(255,215,0,0.3);
-        }
-        .nav-container {
-            width: 95%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 900;
-            text-shadow: 0 0 10px #FFD700;
-        }
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        .user-info img {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 3px solid #FFD700;
-        }
-        .container {
-            display: none;
-            width: 95%;
-            max-width: 1400px;
-            margin: 90px auto 90px;
-            padding: 0 10px;
-        }
-        #main { display: block; }
-        .main-card {
-            background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
-            color: #0a1628;
-            padding: 25px;
-            border-radius: 18px;
-            border: 4px solid #FFD700;
-            margin-bottom: 18px;
-            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
-            transition: 0.3s;
-        }
-        .main-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,215,0,0.5);
-        }
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #0a1628;
-        }
-        .card-icon { font-size: 2.2rem; }
-        .card-desc {
-            color: #1a2942;
-            line-height: 1.9;
-            font-size: 1rem;
-            margin-bottom: 14px;
-            font-weight: 600;
-        }
-        .card-btn {
-            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
-            color: #FFD700;
-            padding: 13px 28px;
-            border: 3px solid #0a1628;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            cursor: pointer;
-            width: 100%;
-            font-family: 'Cairo';
-            transition: 0.3s;
-        }
-        .card-btn:hover {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-        }
-        .card-btn:active { transform: scale(0.98); }
-        #mushafPage, #azkarPage, #hadithPage, #salahPage, #fiqhPage, #seerahPage { display: none; }
-        .page-header {
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 18px;
-            border-radius: 15px;
-            border: 3px solid #FFD700;
-            margin-bottom: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-        }
-        .page-header h2 {
-            color: #FFD700;
-            font-weight: 900;
-            font-size: 1.4rem;
-        }
-        .back-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 10px;
-            font-weight: 900;
-            cursor: pointer;
-            font-family: 'Cairo';
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .back-btn:hover { transform: scale(1.05); }
-        .suras-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-        .sura-item {
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 14px;
-            border-radius: 12px;
-            border: 3px solid #FFD700;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 3px 10px rgba(255,215,0,0.2);
-        }
-        .sura-item:hover {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(255,215,0,0.5);
-        }
-        .sura-num {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 6px;
-        }
-        .sura-name {
-            font-size: 0.95rem;
-            font-family: 'Amiri', serif;
-            font-weight: 700;
-        }
-        #suraPage { display: none; }
-        .sura-content {
-            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
-            color: #0a1628;
-            padding: 28px;
-            border-radius: 18px;
-            border: 4px solid #FFD700;
-            margin-bottom: 18px;
-            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
-        }
-        .sura-title {
-            text-align: center;
-            font-size: 2rem;
-            color: #0a1628;
-            margin-bottom: 22px;
-            font-family: 'Amiri', serif;
-            font-weight: 700;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 14px;
-        }
-        .basmala {
-            text-align: center;
-            font-size: 1.6rem;
-            font-family: 'Amiri', serif;
-            color: #0a1628;
-            margin-bottom: 22px;
-            font-weight: 700;
-        }
-        .ayat-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-        .ayah-box {
-            background: #fff;
-            border: 3px solid #0a1628;
-            border-radius: 12px;
-            padding: 16px 20px;
-            font-size: 1.4rem;
-            line-height: 2.4;
-            font-family: 'Amiri', serif;
-            color: #0a1628;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-            flex: 0 1 auto;
-            max-width: 100%;
-            font-weight: 700;
-        }
-        .ayah-num {
-            display: inline-block;
-            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
-            color: #FFD700;
-            width: 36px;
-            height: 36px;
-            line-height: 36px;
-            text-align: center;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            margin-right: 10px;
-            font-family: 'Cairo';
-            font-weight: 900;
-        }
-        .page-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 18px;
-            padding: 14px;
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            border-radius: 12px;
-            border: 3px solid #FFD700;
-        }
-        .page-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #0a1628;
-            padding: 11px 26px;
-            border: none;
-            border-radius: 10px;
-            font-weight: 900;
-            cursor: pointer;
-            font-family: 'Cairo';
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-        .page-btn:hover { transform: scale(1.05); }
-        .page-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        .page-info {
-            color: #FFD700;
-            font-size: 1.1rem;
-            font-weight: 900;
-        }
-        .content-item {
-            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
-            color: #0a1628;
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid #FFD700;
-            margin-bottom: 14px;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.2);
-        }
-        .content-text {
-            font-size: 1.2rem;
-            line-height: 2.2;
-            font-family: 'Amiri', serif;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        .content-source {
-            color: #1a2942;
-            font-size: 0.95rem;
-            font-weight: 900;
-        }
-        .salah-times {
-            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
-            color: #0a1628;
-            padding: 28px;
-            border-radius: 15px;
-            border: 4px solid #FFD700;
-            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
-        }
-        .salah-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 17px;
-            border-bottom: 2px solid #0a1628;
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-        .salah-item:last-child { border: none; }
-        .bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            border-top: 3px solid #FFD700;
-            padding: 10px 0;
-            justify-content: space-around;
-            z-index: 998;
-            box-shadow: 0 -3px 15px rgba(255,215,0,0.3);
-        }
-        .nav-item {
-            text-align: center;
-            color: #FFD700;
-            font-size: 0.75rem;
-            cursor: pointer;
-            padding: 6px 10px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-        .nav-item:hover { transform: scale(1.1); }
-        .nav-item.active { color: #fff; }
-        .nav-icon {
-            font-size: 1.6rem;
-            margin-bottom: 4px;
-        }
-        #logoutBtn {
-            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
-            color: white;
-            margin: 18px auto;
-            max-width: 240px;
-            display: block;
-            padding: 12px;
-            font-size: 15px;
-            font-weight: 900;
-            border: 3px solid #8B0000;
-            border-radius: 12px;
-            cursor: pointer;
-        }
+        #main { display: none }
+        .hidden { display: none !important }
         @media (max-width: 768px) {
-            .welcome-card {
-                padding: 30px 20px;
-                max-width: 95%;
-            }
-            .welcome-card img {
-                width: 220px;
-                height: 220px;
-            }
-            .welcome-card h1 { font-size: 2rem; }
-            .welcome-card h2 { font-size: 1.2rem; }
-            .suras-list { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
-            .ayah-box { font-size: 1.2rem; }
-            .ayat-container { gap: 12px; }
+            .welcome-title { font-size: 2.2em }
+            .welcome-subtitle { font-size: 1.3em }
+            .welcome-frame { width: 200px; height: 200px }
+            .register-box { padding: 30px 20px }
         }
     </style>
 </head>
 <body>
-    <div id="welcome">
-        <div class="welcome-card">
-            <img src="king.jpg" alt="Al King">
-            <h1>مؤسسة Al King القرآنية</h1>
-            <h2>أهلاً وسهلاً بك ضيفنا الكريم</h2>
-            <p>
-                أكبر موسوعة إسلامية شاملة في العالم<br>
-                القرآن الكريم - الأذكار - الأحاديث - الفقه - السيرة النبوية
-            </p>
-            <button class="welcome-btn" onclick="showRegister()">تسجيل الدخول</button>
+    <div class="welcome-screen" id="welcome">
+        <div class="welcome-content">
+            <div class="welcome-frame">
+                <img src="https://i.ibb.co/7jXqH5z/pharaoh.jpg" alt="الحضارة المصرية">
+            </div>
+            <h1 class="welcome-title">👑 موسوعة الحضارة المصرية الملكية 👑</h1>
+            <p class="welcome-subtitle">رحلة عبر 7000 سنة من المجد والحضارة<br>من عصر الفراعنة إلى العصر الحديث</p>
+            <button class="welcome-btn" onclick="showRegister()">الدخول للموسوعة</button>
         </div>
-    </div>
     <div id="register">
         <div class="register-box">
-            <h2>🕌 تسجيل البيانات</h2>
+            <h2>👑 تسجيل الدخول الملكي 👑</h2>
             <div class="form-group">
                 <label>الاسم الكامل *</label>
-                <input type="text" id="fullName" placeholder="اكتب اسمك">
+                <input type="text" id="fullName" placeholder="ادخل اسمك الثلاثي">
                 <div class="error" id="nameError">الاسم مطلوب</div>
             </div>
             <div class="form-group">
                 <label>العمر *</label>
-                <input type="number" id="age" placeholder="كم عمرك؟" min="10" max="100">
-                <div class="error" id="ageError">العمر يجب أن يكون بين 10 و 100</div>
+                <input type="number" id="age" placeholder="ادخل عمرك">
+                <div class="error" id="ageError">العمر مطلوب ويجب أن يكون 13+ سنة</div>
             </div>
             <div class="form-group">
-                <label>البلد *</label>
-                <select id="country" onchange="updateRegions()">
-                    <option value="">اختر بلدك</option>
-                    <option value="مصر">مصر</option>
-                    <option value="السعودية">السعودية</option>
-                    <option value="الإمارات">الإمارات</option>
-                    <option value="الكويت">الكويت</option>
-                    <option value="قطر">قطر</option>
-                    <option value="البحرين">البحرين</option>
-                    <option value="عمان">عمان</option>
-                    <option value="الأردن">الأردن</option>
-                    <option value="فلسطين">فلسطين</option>
-                    <option value="سوريا">سوريا</option>
-                    <option value="لبنان">لبنان</option>
-                    <option value="العراق">العراق</option>
-                    <option value="المغرب">المغرب</option>
-                    <option value="الجزائر">الجزائر</option>
-                    <option value="تونس">تونس</option>
-                    <option value="ليبيا">ليبيا</option>
-                    <option value="السودان">السودان</option>
-                    <option value="أخرى">أخرى</option>
+                <label>الجنس *</label>
+                <select id="gender">
+                    <option value="">اختر الجنس</option>
+                    <option value="male">ذكر</option>
+                    <option value="female">أنثى</option>
                 </select>
-                <div class="error" id="countryError">اختر بلدك</div>
-            </div>
-            <div class="form-group">
-                <label>المنطقة / المحافظة *</label>
-                <select id="region">
-                    <option value="">اختر منطقتك</option>
-                </select>
-                <div class="error" id="regionError">اختر منطقتك</div>
+                <div class="error" id="genderError">الجنس مطلوب</div>
             </div>
             <div class="form-group">
                 <label>البريد الإلكتروني *</label>
-                <input type="email" id="email" placeholder="example@email.com" onblur="checkEmail()">
+                <input type="email" id="email" placeholder="example@email.com">
                 <div class="error" id="emailError">بريد إلكتروني صحيح مطلوب</div>
-                <div class="email-verify" id="emailVerify">
-                    <p>📧 تم إرسال كود التحقق: 123456</p>
-                    <div class="verify-code">
-                        <input type="text" id="verifyCode" placeholder="000000" maxlength="6">
-                        <button class="verify-btn" onclick="verifyEmail()">تحقق</button>
-                    </div>
-                </div>
             </div>
             <div class="form-group">
-                <label>كلمة السر *</label>
-                <input type="password" id="password" placeholder="6 أحرف على الأقل">
-                <div class="error" id="passError">كلمة السر 6 أحرف على الأقل</div>
+                <label>كلمة المرور *</label>
+                <input type="password" id="password" placeholder="8 أحرف على الأقل">
+                <div class="error" id="passError">كلمة المرور 8 أحرف على الأقل</div>
             </div>
-            <div class="form-group">
-                <label>تأكيد كلمة السر *</label>
-                <input type="password" id="confirmPass" placeholder="أعد كتابة كلمة السر">
-                <div class="error" id="confirmError">كلمة السر غير متطابقة</div>
-            </div>
-            <button class="register-btn" id="registerBtn" onclick="validateAndRegister()">دخول الموسوعة</button>
+            <button class="register-btn" onclick="register()">تسجيل الدخول 👑</button>
+        </div>
+    <div id="main">
+        <div class="container">
+            <h1 style="text-align:center;color:var(--royal-gold);font-size:3em;margin:40px 0">تم الدخول بنجاح 👑</h1>
+            <p style="text-align:center;font-size:1.5em">الموسوعة الكاملة قيد التطوير</p>
         </div>
     </div>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">🕌 مؤسسة Al King القرآنية</div>
-            <div class="user-info" id="userInfo">
-                <span id="userName"></span>
-                <img src="king.jpg" alt="User">
-            </div>
-        </div>
-    </nav>
-    <div class="container" id="container">
-        <div id="main">
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">📖 القرآن الكريم</div>
-                    <div class="card-icon">🕌</div>
-                </div>
-                <div class="card-desc">
-                    المصحف الشريف كامل 114 سورة - 6236 آية. السور المكية 86 سورة والسور المدنية 28 سورة. من الفاتحة إلى الناس. أهم السور: البقرة، آل عمران، الكهف، مريم، يس، الرحمن، الواقعة، الملك
-                </div>
-                <button class="card-btn" onclick="openMushaf()">فتح المصحف الشريف</button>
-            </div>
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">📿 الأذكار اليومية</div>
-                    <div class="card-icon">🤲</div>
-                </div>
-                <div class="card-desc">
-                    أذكار الصباح 30 ذكر، أذكار المساء 30 ذكر، أذكار النوم 15 ذكر، أذكار الاستيقاظ 5 أذكار، أذكار الصلاة 20 ذكر، أذكار الخروج من المنزل، دخول المسجد، السفر، الطعام، اللباس
-                </div>
-                <button class="card-btn" onclick="openAzkar()">فتح الأذكار</button>
-            </div>
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">📚 الأحاديث النبوية الشريفة</div>
-                    <div class="card-icon">📖</div>
-                </div>
-                <div class="card-desc">
-                    صحيح البخاري 7563 حديث، صحيح مسلم 3033 حديث، الأربعين النووية 42 حديث، رياض الصالحين 1903 حديث، سنن الترمذي، سنن أبي داود، سنن النسائي، سنن ابن ماجه
-                </div>
-                <button class="card-btn" onclick="openHadith()">تصفح الأحاديث</button>
-            </div>
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">🕋 مواقيت الصلاة</div>
-                    <div class="card-icon">🕌</div>
-                </div>
-                <div class="card-desc">
-                    الفجر، الشروق، الظهر، العصر، المغرب، العشاء. مع اتجاه القبلة، التاريخ الهجري والميلادي، الأذان التلقائي، أوقات الصلاة حسب موقعك
-                </div>
-                <button class="card-btn" onclick="openSalah()">عرض المواقيت</button>
-            </div>
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">⚖️ الفقه الإسلامي</div>
-                    <div class="card-icon">📜</div>
-                </div>
-                <div class="card-desc">
-                    أحكام الطهارة: الوضوء، الغسل، التيمم، المسح على الخفين. أحكام الصلاة: الشروط، الأركان، الواجبات، السنن، المبطلات، سجود السهو. أحكام الزكاة، الصوم، الحج، البيوع، النكاح، الطلاق
-                </div>
-                <button class="card-btn" onclick="openFiqh()">فتح الفقه</button>
-            </div>
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">🌙 السيرة النبوية العطرة</div>
-                    <div class="card-icon">👑</div>
-                </div>
-                <div class="card-desc">
-                    مولد النبي ﷺ عام الفيل، البعثة النبوية، الهجرة إلى المدينة، الغزوات: بدر، أحد، الخندق، خيبر، فتح مكة، حنين، تبوك. زوجات النبي، أبناء النبي، الصحابة الكرام، المعجزات، حجة الوداع، الوفاة
-                </div>
-                <button class="card-btn" onclick="openSeerah()">فتح السيرة</button>
-            </div>
-            <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
-        </div>
-        <div id="mushafPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>📖 المصحف الشريف - 114 سورة</h2>
-                <div></div>
-            </div>
-            <div class="suras-list" id="surasList"></div>
-        </div>
-        <div id="suraPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMushaf()">← رجوع</button>
-                <h2 id="currentSuraName"></h2>
-                <div></div>
-            </div>
-            <div class="sura-content" id="suraContent"></div>
-            <div class="page-controls">
-                <button class="page-btn" id="prevBtn" onclick="prevPage()">← السابق</button>
-                <div class="page-info" id="pageInfo"></div>
-                <button class="page-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
-            </div>
-        </div>
-        <div id="azkarPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>📿 الأذكار الشاملة</h2>
-                <div></div>
-            </div>
-            <div id="azkarList"></div>
-        </div>
-        <div id="hadithPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>📚 الأحاديث النبوية</h2>
-                <div></div>
-            </div>
-            <div id="hadithList"></div>
-        </div>
-        <div id="salahPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>🕋 مواقيت الصلاة</h2>
-                <div></div>
-            </div>
-            <div class="salah-times" id="salahTimes"></div>
-        </div>
-        <div id="fiqhPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>⚖️ الفقه الإسلامي</h2>
-                <div></div>
-            </div>
-            <div id="fiqhList"></div>
-        </div>
-        <div id="seerahPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2>🌙 السيرة النبوية</h2>
-                <div></div>
-            </div>
-            <div id="seerahList"></div>
-        </div>
-    </div>
-    <div class="bottom-nav" id="bottomNav">
-        <div class="nav-item active" onclick="showSection('main')">
-            <div class="nav-icon">🏠</div>
-            <div>الرئيسية</div>
-        </div>
-        <div class="nav-item" onclick="openAzkar()">
-            <div class="nav-icon">📿</div>
-            <div>الأذكار</div>
-        </div>
-        <div class="nav-item" onclick="openHadith()">
-            <div class="nav-icon">📚</div>
-            <div>الحديث</div>
-        </div>
-        <div class="nav-item" onclick="openSalah()">
-            <div class="nav-icon">🕋</div>
-            <div>الصلاة</div>
-        </div>
-        <div class="nav-item" onclick="openFiqh()">
-            <div class="nav-icon">⚖️</div>
-            <div>الفقه</div>
-        </div>
     <script>
-        const suras = [
-            {num: 1, name: "الفاتحة", ayahs: 7, type: "مكية"}, {num: 2, name: "البقرة", ayahs: 286, type: "مدنية"},
-            {num: 3, name: "آل عمران", ayahs: 200, type: "مدنية"}, {num: 4, name: "النساء", ayahs: 176, type: "مدنية"},
-            {num: 5, name: "المائدة", ayahs: 120, type: "مدنية"}, {num: 6, name: "الأنعام", ayahs: 165, type: "مكية"},
-            {num: 7, name: "الأعراف", ayahs: 206, type: "مكية"}, {num: 8, name: "الأنفال", ayahs: 75, type: "مدنية"},
-            {num: 9, name: "التوبة", ayahs: 129, type: "مدنية"}, {num: 10, name: "يونس", ayahs: 109, type: "مكية"},
-            {num: 11, name: "هود", ayahs: 123, type: "مكية"}, {num: 12, name: "يوسف", ayahs: 111, type: "مكية"},
-            {num: 13, name: "الرعد", ayahs: 43, type: "مدنية"}, {num: 14, name: "إبراهيم", ayahs: 52, type: "مكية"},
-            {num: 15, name: "الحجر", ayahs: 99, type: "مكية"}, {num: 16, name: "النحل", ayahs:
+        function showRegister() {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('register').style.display = 'block';
+        }
+        function register() {
+            let valid = true;
+            const name = document.getElementById('fullName').value.trim();
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const email = document.getElementById('email').value.trim();
+            const pass = document.getElementById('password').value;
+            
+            document.querySelectorAll('.error').forEach(e => e.classList.remove('show'));
+            
+            if (!name) {
+                document.getElementById('nameError').classList.add('show');
+                valid = false;
+            }
+            if (!age || age < 13) {
+                document.getElementById('ageError').classList.add('show');
+                valid = false;
+            }
+            if (!gender) {
+                document.getElementById('genderError').classList.add('
