@@ -58,12 +58,12 @@
     </div>
     <script>
         function login() {
-            let u = document.getElementById('user').value;
-            let p = document.getElementById('pass').value;
+            let u = document.getElementById('user').value.trim().toUpperCase();
+            let p = document.getElementById('pass').value.trim();
             if (u === 'ABDO' && p === '1') {
                 document.body.innerHTML = '<h1 style="color:#FFD700;text-align:center;margin-top:40vh;font-size:3rem;">أهلاً بالمحترفين 👑</h1>';
             } else {
-                alert('بيانات غلط يا KING');
+                alert('بيانات غلط يا KING - انت كتبت: ' + u + ' / ' + p);
             }
         }
     </script>
