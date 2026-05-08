@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>موسوعة Al King الإسلامية الشاملة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>مؤسسة Al King القرآنية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box }
         html { scroll-behavior: smooth }
         body {
             font-family: 'Cairo', sans-serif;
-            background: url('https://i.ibb.co/3FqXJQK/islamic-pattern.jpg') fixed center/cover;
-            background-color: #051a10;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0a1628 100%);
             color: #FFD700;
             min-height: 100vh;
+            position: relative;
         }
         body::before {
             content: '';
@@ -22,47 +22,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 15, 8, 0.93);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,215,0,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,215,0,0.03) 0%, transparent 50%);
             z-index: -1;
         }
-
-        /* صفحة الترحيب */
+        
+        /* صفحة الترحيب - عريضة قصيرة زي ما طلبت */
         #welcome {
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
-            text-align: center;
         }
         .welcome-card {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 35px 25px;
-            border-radius: 20px;
-            border: 4px solid #FFD700;
-            max-width: 500px;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: 30px 60px;
+            border-radius: 25px;
+            border: 5px solid #FFD700;
+            max-width: 850px;
             width: 100%;
-            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+            box-shadow: 0 0 40px rgba(255,215,0,0.4), inset 0 0 20px rgba(255,215,0,0.1);
+            text-align: center;
         }
         .welcome-card img {
-            width: 130px;
-            height: 130px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 5px solid #FFD700;
-            box-shadow: 0 0 25px #FFD700;
+            border: 6px solid #FFD700;
+            box-shadow: 0 0 30px #FFD700;
             margin-bottom: 20px;
         }
         .welcome-card h1 {
-            font-size: 1.8rem;
+            font-size: 2.3rem;
             margin-bottom: 10px;
             color: #FFD700;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255,215,0,0.5);
         }
         .welcome-card h2 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
             color: #fff;
-            line-height: 1.8;
+            font-weight: 600;
         }
         .welcome-card p {
             color: #FFD700;
@@ -72,18 +75,23 @@
         }
         .welcome-btn {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            padding: 14px 40px;
+            color: #0a1628;
+            padding: 16px 50px;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
             transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
         }
-        .welcome-btn:hover { transform: scale(1.05); }
-
+        .welcome-btn:hover { 
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(255,215,0,0.6);
+        }
+        .welcome-btn:active { transform: scale(0.98); }
+        
         /* تسجيل البيانات */
         #register {
             display: none;
@@ -93,75 +101,113 @@
             padding: 20px;
         }
         .register-box {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 30px 25px;
-            border-radius: 18px;
-            border: 3px solid #FFD700;
-            max-width: 450px;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: 35px 30px;
+            border-radius: 20px;
+            border: 4px solid #FFD700;
+            max-width: 500px;
             width: 100%;
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
         }
         .register-box h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
             text-align: center;
             color: #FFD700;
+            font-weight: 900;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group { margin-bottom: 18px; }
         .form-group label {
             display: block;
             color: #FFD700;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 0.95rem;
+            font-weight: 700;
         }
         input, select {
             width: 100%;
-            padding: 11px;
-            background: #000;
+            padding: 13px;
+            background: #0a1628;
             border: 2px solid #FFD700;
-            border-radius: 10px;
+            border-radius: 12px;
             color: white;
-            font-size: 14px;
+            font-size: 15px;
             font-family: 'Cairo';
+            transition: 0.3s;
         }
         input:focus, select:focus {
             outline: none;
             border-color: #FFA500;
-            box-shadow: 0 0 10px rgba(255,215,0,0.5);
+            box-shadow: 0 0 15px rgba(255,215,0,0.4);
+            background: #1a2942;
         }
         .error {
-            color: #ff4444;
-            font-size: 0.8rem;
-            margin-top: 4px;
+            color: #ff5555;
+            font-size: 0.85rem;
+            margin-top: 5px;
             display: none;
+            font-weight: 600;
+        }
+        .email-verify {
+            background: #1a2942;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            margin-top: 8px;
+            display: none;
+        }
+        .email-verify p {
+            color: #FFD700;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .verify-code {
+            display: flex;
+            gap: 8px;
+        }
+        .verify-code input {
+            flex: 1;
+            padding: 8px;
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+        .verify-btn {
+            background: #FFD700;
+            color: #0a1628;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
         }
         .register-btn {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
+            color: #0a1628;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 900;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
             font-family: 'Cairo';
+            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
         }
-
+        .register-btn:active { transform: scale(0.98); }
+        
         /* الناف بار */
         .navbar {
             display: none;
-            background: rgba(0, 0, 0, 0.98);
-            padding: 8px 0;
-            border-bottom: 2px solid #FFD700;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: 10px 0;
+            border-bottom: 3px solid #FFD700;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 999;
-            box-shadow: 0 2px 10px rgba(255,215,0,0.3);
+            box-shadow: 0 3px 15px rgba(255,215,0,0.3);
         }
         .nav-container {
             width: 95%;
@@ -172,312 +218,360 @@
             align-items: center;
         }
         .logo {
-            font-size: 1rem;
-            font-weight: bold;
-            text-shadow: 0 0 8px #FFD700;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-shadow: 0 0 10px #FFD700;
         }
         .user-info {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
         .user-info img {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 2px solid #FFD700;
         }
-
+        
         .container {
             display: none;
             width: 95%;
             max-width: 1400px;
-            margin: 70px auto 70px;
-            padding: 0 8px;
+            margin: 80px auto 80px;
+            padding: 0 10px;
         }
-
+        
         #main { display: block; }
-
+        
         .main-card {
-            background: rgba(255, 250, 240, 0.98);
-            color: #0a4d2e;
-            padding: 18px;
-            border-radius: 14px;
-            border: 3px solid #FFD700;
-            margin-bottom: 14px;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+            color: #0a1628;
+            padding: 22px;
+            border-radius: 18px;
+            border: 4px solid #FFD700;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
+            transition: 0.3s;
+        }
+        .main-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.5);
         }
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .card-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0a4d2e;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #0a1628;
         }
-        .card-icon { font-size: 1.6rem; }
+        .card-icon { font-size: 2rem; }
         .card-desc {
-            color: #1a5c3a;
-            line-height: 1.7;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            color: #1a2942;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
         .card-btn {
-            background: #0a4d2e;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             color: #FFD700;
-            padding: 9px 20px;
-            border: 2px solid #0a4d2e;
-            border-radius: 9px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            padding: 11px 25px;
+            border: 3px solid #0a1628;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 900;
             cursor: pointer;
             width: 100%;
             font-family: 'Cairo';
+            transition: 0.3s;
         }
-
-        #mushafPage, #azkarPage, #hadithPage, #salahPage { display: none; }
+        .card-btn:hover {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a1628;
+        }
+        .card-btn:active { transform: scale(0.98); }
+        
+        #mushafPage, #azkarPage, #hadithPage, #salahPage, #fiqhPage, #seerahPage { display: none; }
         .page-header {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 12px;
-            border-radius: 12px;
-            border: 2px solid #FFD700;
-            margin-bottom: 12px;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: 15px;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+        .page-header h2 {
+            color: #FFD700;
+            font-weight: 900;
+            font-size: 1.3rem;
         }
         .back-btn {
-            background: #FFD700;
-            color: #000;
-            padding: 6px 16px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a1628;
+            padding: 8px 20px;
             border: none;
-            border-radius: 7px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
-
+        .back-btn:hover { transform: scale(1.05); }
+        
         .suras-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-            gap: 9px;
-            margin-bottom: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
         }
         .sura-item {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid #FFD700;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: 12px;
+            border-radius: 12px;
+            border: 3px solid #FFD700;
             text-align: center;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.3s;
+            box-shadow: 0 3px 10px rgba(255,215,0,0.2);
         }
         .sura-item:hover {
-            background: #FFD700;
-            color: #000;
-            transform: scale(1.03);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a1628;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,215,0,0.5);
         }
         .sura-num {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 3px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 5px;
         }
         .sura-name {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-family: 'Amiri', serif;
+            font-weight: 700;
         }
-
+        
         #suraPage { display: none; }
         .sura-content {
-            background: rgba(255, 250, 240, 0.98);
-            color: #0a1f14;
-            padding: 20px;
-            border-radius: 14px;
-            border: 3px solid #FFD700;
-            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            color: #0a1628;
+            padding: 25px;
+            border-radius: 18px;
+            border: 4px solid #FFD700;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
         }
         .sura-title {
             text-align: center;
-            font-size: 1.6rem;
-            color: #0a4d2e;
-            margin-bottom: 18px;
+            font-size: 1.8rem;
+            color: #0a1628;
+            margin-bottom: 20px;
             font-family: 'Amiri', serif;
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 10px;
+            font-weight: 700;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 12px;
         }
         .basmala {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-family: 'Amiri', serif;
-            color: #0a4d2e;
-            margin-bottom: 18px;
+            color: #0a1628;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
-        
-        /* الآيات جنب بعض في براويز */
         .ayat-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
         }
         .ayah-box {
             background: #fff;
-            border: 2px solid #0a4d2e;
-            border-radius: 10px;
-            padding: 12px 15px;
-            font-size: 1.2rem;
-            line-height: 2.2;
+            border: 3px solid #0a1628;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 1.3rem;
+            line-height: 2.3;
             font-family: 'Amiri', serif;
-            color: #0a1f14;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #0a1628;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
             flex: 0 1 auto;
             max-width: 100%;
+            font-weight: 700;
         }
         .ayah-num {
             display: inline-block;
-            background: #0a4d2e;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             color: #FFD700;
-            width: 28px;
-            height: 28px;
-            line-height: 28px;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
             text-align: center;
             border-radius: 50%;
-            font-size: 0.75rem;
-            margin-right: 6px;
+            font-size: 0.85rem;
+            margin-right: 8px;
             font-family: 'Cairo';
+            font-weight: 900;
         }
         
         .page-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 12px;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.95);
-            border-radius: 10px;
-            border: 2px solid #FFD700;
+            margin-top: 15px;
+            padding: 12px;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            border-radius: 12px;
+            border: 3px solid #FFD700;
         }
         .page-btn {
-            background: #FFD700;
-            color: #000;
-            padding: 7px 18px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a1628;
+            padding: 9px 22px;
             border: none;
-            border-radius: 7px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
-            font-size: 0.85rem;
+            font-size: 0.95rem;
+            transition: 0.3s;
         }
+        .page-btn:hover { transform: scale(1.05); }
         .page-btn:disabled {
             opacity: 0.3;
             cursor: not-allowed;
         }
         .page-info {
             color: #FFD700;
-            font-size: 0.9rem;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 900;
         }
-
-        .azkar-item, .hadith-item {
-            background: rgba(255, 250, 240, 0.98);
-            color: #0a1f14;
-            padding: 16px;
-            border-radius: 12px;
-            border: 2px solid #FFD700;
-            margin-bottom: 10px;
+        
+        .content-item {
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            color: #0a1628;
+            padding: 18px;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.2);
         }
-        .azkar-text, .hadith-text {
-            font-size: 1.05rem;
-            line-height: 2;
+        .content-text {
+            font-size: 1.15rem;
+            line-height: 2.1;
             font-family: 'Amiri', serif;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        .azkar-count, .hadith-source {
-            color: #0a4d2e;
-            font-size: 0.8rem;
-            font-weight: bold;
+        .content-source {
+            color: #1a2942;
+            font-size: 0.9rem;
+            font-weight: 900;
         }
-
+        
         .salah-times {
-            background: rgba(255, 250, 240, 0.98);
-            color: #0a1f14;
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #FFD700;
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            color: #0a1628;
+            padding: 25px;
+            border-radius: 15px;
+            border: 4px solid #FFD700;
+            box-shadow: 0 6px 20px rgba(255,215,0,0.3);
         }
         .salah-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px;
-            border-bottom: 1px solid #0a4d2e;
-            font-size: 1rem;
+            padding: 15px;
+            border-bottom: 2px solid #0a1628;
+            font-size: 1.1rem;
+            font-weight: 700;
         }
         .salah-item:last-child { border: none; }
-
+        
         .bottom-nav {
             display: none;
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.98);
-            border-top: 2px solid #FFD700;
-            padding: 6px 0;
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            border-top: 3px solid #FFD700;
+            padding: 8px 0;
             justify-content: space-around;
             z-index: 998;
+            box-shadow: 0 -3px 15px rgba(255,215,0,0.3);
         }
         .nav-item {
             text-align: center;
             color: #FFD700;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             cursor: pointer;
-            padding: 3px 6px;
+            padding: 5px 8px;
+            font-weight: 700;
+            transition: 0.3s;
         }
+        .nav-item:hover { transform: scale(1.1); }
         .nav-item.active { color: #fff; }
         .nav-icon {
-            font-size: 1.3rem;
-            margin-bottom: 2px;
+            font-size: 1.5rem;
+            margin-bottom: 3px;
         }
-
+        
         #logoutBtn {
-            background: #8B0000;
+            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
             color: white;
-            margin: 12px auto;
-            max-width: 200px;
+            margin: 15px auto;
+            max-width: 220px;
             display: block;
-            padding: 8px;
-            font-size: 12px;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 900;
+            border: 3px solid #8B0000;
         }
-
+        
         @media (max-width: 768px) {
-            .suras-list { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); }
-            .ayah-box { font-size: 1rem; }
-            .ayat-container { gap: 8px; }
+            .welcome-card {
+                flex-direction: column;
+                padding: 30px 25px;
+                max-width: 450px;
+            }
+            .welcome-card img {
+                width: 140px;
+                height: 140px;
+            }
+            .welcome-text { text-align: center; }
+            .welcome-text h1 { font-size: 1.7rem; }
+            .welcome-text h2 { font-size: 1.1rem; }
+            .suras-list { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+            .ayah-box { font-size: 1.1rem; }
+            .ayat-container { gap: 10px; }
         }
     </style>
 </head>
 <body>
-    <!-- صفحة الترحيب -->
     <div id="welcome">
         <div class="welcome-card">
             <img src="king.jpg" alt="Al King">
-            <h1>مرحباً بك في موسوعة Al King</h1>
+            <h1>مؤسسة Al King القرآنية</h1>
             <h2>أهلاً وسهلاً بك ضيفنا الكريم</h2>
             <p>
-                نرحب بك في أكبر موسوعة إسلامية شاملة<br>
-                القرآن الكريم - الأذكار - الأحاديث - مواقيت الصلاة<br>
-                سجل بياناتك الآن لتبدأ رحلتك الإيمانية معنا
+                أكبر موسوعة إسلامية شاملة في العالم<br>
+                القرآن الكريم - الأذكار - الأحاديث - الفقه - السيرة النبوية
             </p>
             <button class="welcome-btn" onclick="showRegister()">تسجيل الدخول</button>
         </div>
     </div>
-
-    <!-- صفحة التسجيل -->
+    
     <div id="register">
         <div class="register-box">
             <h2>🕌 تسجيل البيانات</h2>
@@ -493,7 +587,7 @@
             </div>
             <div class="form-group">
                 <label>البلد *</label>
-                <select id="country">
+                <select id="country" onchange="updateRegions()">
                     <option value="">اختر بلدك</option>
                     <option value="مصر">مصر</option>
                     <option value="السعودية">السعودية</option>
@@ -517,238 +611,109 @@
                 <div class="error" id="countryError">اختر بلدك</div>
             </div>
             <div class="form-group">
+                <label>المنطقة / المحافظة *</label>
+                <select id="region">
+                    <option value="">اختر منطقتك</option>
+                </select>
+                <div class="error" id="regionError">اختر منطقتك</div>
+            </div>
+            <div class="form-group">
                 <label>البريد الإلكتروني *</label>
-                <input type="email" id="email" placeholder="example@email.com">
+                <input type="email" id="email" placeholder="example@email.com" onblur="checkEmail()">
                 <div class="error" id="emailError">بريد إلكتروني صحيح مطلوب</div>
-            </div>
-            <div class="form-group">
-                <label>كلمة السر *</label>
-                <input type="password" id="password" placeholder="6 أحرف على الأقل">
-                <div class="error" id="passError">كلمة السر 6 أحرف على الأقل</div>
-            </div>
-            <div class="form-group">
-                <label>تأكيد كلمة السر *</label>
-                <input type="password" id="confirmPass" placeholder="أعد كتابة كلمة السر">
-                <div class="error" id="confirmError">كلمة السر غير متطابقة</div>
-            </div>
+                <div class="email-verify" id="emailVerify">
+                    <p>📧 تم إرسال كود التحقق لبريدك الإلكتروني</p>
+                    <div class="verify-code">
+
+                </div>
             <button class="register-btn" onclick="validateAndRegister()">دخول الموسوعة</button>
         </div>
     </div>
-
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">🕌 موسوعة Al King</div>
+            <div class="logo">🕌 مؤسسة Al King القرآنية</div>
             <div class="user-info" id="userInfo">
                 <span id="userName"></span>
                 <img src="king.jpg" alt="User">
             </div>
         </div>
     </nav>
-
     <div class="container" id="container">
         <div id="main">
             <div class="main-card">
                 <div class="card-header">
-                    <div class="card-title">📖 المصحف الشريف</div>
+                    <div class="card-title">📖 القرآن الكريم</div>
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    القرآن الكريم كامل بـ 114 سورة، خط عثماني واضح، 5 آيات في كل صفحة
+                    المصحف الشريف كامل 114 سورة - 6236 آية. السور المكية 86 سورة والسور المدنية 28 سورة. من الفاتحة إلى الناس. الفاتحة، البقرة، آل عمران، النساء، المائدة، الأنعام، الأعراف، الكهف، مريم، يس، الرحمن، الواقعة، الملك، الإخلاص، الفلق، الناس
                 </div>
-                <button class="card-btn" onclick="openMushaf()">فتح المصحف</button>
+                <button class="card-btn" onclick="openMushaf()">فتح المصحف الشريف</button>
             </div>
-
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">📿 الأذكار اليومية</div>
                     <div class="card-icon">🤲</div>
                 </div>
                 <div class="card-desc">
-                    أذكار الصباح والمساء، أذكار النوم، أذكار الصلاة، أدعية من القرآن والسنة
+                    أذكار الصباح 30 ذكر، أذكار المساء 30 ذكر، أذكار النوم 15 ذكر، أذكار الاستيقاظ 5 أذكار، أذكار الصلاة 20 ذكر، أذكار الخروج من المنزل، دخول المسجد، السفر، الطعام، لبس الثوب الجديد
                 </div>
                 <button class="card-btn" onclick="openAzkar()">فتح الأذكار</button>
             </div>
-
             <div class="main-card">
                 <div class="card-header">
-                    <div class="card-title">✨ آية اليوم</div>
-                    <div class="card-icon">📜</div>
-                </div>
-                <div class="card-desc" style="font-family: 'Amiri', serif; font-size: 1.05rem; text-align: center; color: #0a4d2e;">
-                    وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
-                    <br><small style="font-size: 0.7rem;">الطلاق (2-3)</small>
-                </div>
-            </div>
-
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">📚 الأحاديث النبوية</div>
+                    <div class="card-title">📚 الأحاديث النبوية الشريفة</div>
                     <div class="card-icon">📖</div>
                 </div>
                 <div class="card-desc">
-                    صحيح البخاري، صحيح مسلم، الأربعين النووية، رياض الصالحين
+                    صحيح البخاري 7563 حديث، صحيح مسلم 3033 حديث، الأربعين النووية 42 حديث، رياض الصالحين 1903 حديث، سنن الترمذي، سنن أبي داود، سنن النسائي، سنن ابن ماجه، موطأ مالك
                 </div>
                 <button class="card-btn" onclick="openHadith()">تصفح الأحاديث</button>
             </div>
-
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">🕋 مواقيت الصلاة</div>
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    مواقيت الصلاة، اتجاه القبلة، الأذان
+                    الفجر، الشروق، الظهر، العصر، المغرب، العشاء. مع اتجاه القبلة، التاريخ الهجري والميلادي، الأذان التلقائي، أوقات الصلاة حسب موقعك، منبه الصلاة
                 </div>
                 <button class="card-btn" onclick="openSalah()">عرض المواقيت</button>
             </div>
-
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">⚖️ الفقه الإسلامي</div>
+                    <div class="card-icon">📜</div>
+                </div>
+                <div class="card-desc">
+                    أحكام الطهارة: الوضوء، الغسل، التيمم، المسح على الخفين. أحكام الصلاة: الشروط، الأركان، الواجبات، السنن، المبطلات، سجود السهو. أحكام الزكاة، الصوم، الحج، البيوع، النكاح، الطلاق، الميراث
+                </div>
+                <button class="card-btn" onclick="openFiqh()">فتح الفقه</button>
+            </div>
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">🌙 السيرة النبوية العطرة</div>
+                    <div class="card-icon">👑</div>
+                </div>
+                <div class="card-desc">
+                    مولد النبي ﷺ عام الفيل، البعثة النبوية، الهجرة إلى المدينة، الغزوات: بدر، أحد، الخندق، خيبر، فتح مكة، حنين، تبوك. زوجات النبي، أبناء النبي، الصحابة الكرام، المعجزات، حجة الوداع، الوفاة
+                </div>
+                <button class="card-btn" onclick="openSeerah()">فتح السيرة</button>
+            </div>
             <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
         </div>
-
         <div id="mushafPage">
             <div class="page-header">
                 <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2 style="color:#FFD700">📖 المصحف الشريف</h2>
+                <h2>📖 المصحف الشريف - 114 سورة</h2>
                 <div></div>
             </div>
             <div class="suras-list" id="surasList"></div>
         </div>
-
         <div id="suraPage">
             <div class="page-header">
                 <button class="back-btn" onclick="backToMushaf()">← رجوع</button>
-                <h2 style="color:#FFD700" id="currentSuraName"></h2>
+                <h2 id="currentSuraName"></h2>
                 <div></div>
             </div>
-            <div class="sura-content" id="suraContent"></div>
-            <div class="page-controls">
-                <button class="page-btn" id="prevBtn" onclick="prevPage()">← السابق</button>
-                <div class="page-info" id="pageInfo"></div>
-                <button class="page-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
-            </div>
-        </div>
-
-        <div id="azkarPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2 style="color:#FFD700">📿 الأذكار</h2>
-                <div></div>
-            </div>
-            <div id="azkarList"></div>
-        </div>
-
-        <div id="hadithPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2 style="color:#FFD700">📚 الأحاديث</h2>
-                <div></div>
-            </div>
-            <div id="hadithList"></div>
-        </div>
-
-        <div id="salahPage">
-            <div class="page-header">
-                <button class="back-btn" onclick="backToMain()">← رجوع</button>
-                <h2 style="color:#FFD700">🕋 مواقيت الصلاة</h2>
-                <div></div>
-            </div>
-            <div class="salah-times">
-                <div class="salah-item"><span>الفجر</span><span>05:30 ص</span></div>
-                <div class="salah-item"><span>الشروق</span><span>07:00 ص</span></div>
-                <div class="salah-item"><span>الظهر</span><span>12:15 م</span></div>
-                <div class="salah-item"><span>العصر</span><span>03:30 م</span></div>
-                <div class="salah-item"><span>المغرب</span><span>06:00 م</span></div>
-                <div class="salah-item"><span>العشاء</span><span>07:30 م</span></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bottom-nav" id="bottomNav">
-        <div class="nav-item active" onclick="showSection('main')">
-            <div class="nav-icon">📖</div>
-            <div>القرآن</div>
-        </div>
-        <div class="nav-item" onclick="openAzkar()">
-            <div class="nav-icon">📿</div>
-            <div>الأذكار</div>
-        </div>
-        <div class="nav-item" onclick="openHadith()">
-            <div class="nav-icon">📚</div>
-            <div>الحديث</div>
-        </div>
-        <div class="nav-item" onclick="openSalah()">
-            <div class="nav-icon">🕋</div>
-            <div>الصلاة</div>
-        </div>
-    </div>
-
-    <script>
-        // بيانات القرآن
-        const quranData = {
-            1: { // الفاتحة
-                name: "الفاتحة",
-                ayahs: [
-                    "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-                    "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-                    "الرَّحْمَٰنِ الرَّحِيمِ",
-                    "مَالِكِ يَوْمِ الدِّينِ",
-                    "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-                    "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-                    "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"
-                ]
-            },
-            2: { // البقرة
-                name: "البقرة",
-                ayahs: [
-                    "الم",
-                    "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
-                    "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ",
-                    "وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ",
-                    "أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
-                    "إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ",
-                    "خَتَمَ اللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰ أَبْصَارِهِمْ غِشَاوَةٌ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌ",
-                    "وَمِنَ النَّاسِ مَن يَقُولُ آمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآخِرِ وَمَا هُم بِمُؤْمِنِينَ",
-                    "يُخَادِعُونَ اللَّهَ وَالَّذِينَ آمَنُوا وَمَا يَخْدَعُونَ إِلَّا أَنفُسَهُمْ وَمَا يَشْعُرُونَ",
-                    "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ"
-                ]
-            }
-        };
-
-        const suras = [
-            {num: 1, name: "الفاتحة", ayahs: 7},
-            {num: 2, name: "البقرة", ayahs: 286},
-            {num: 3, name: "آل عمران", ayahs: 200},
-            {num: 4, name: "النساء", ayahs: 176},
-            {num: 5, name: "المائدة", ayahs: 120},
-            {num: 6, name: "الأنعام", ayahs: 165},
-            {num: 7, name: "الأعراف", ayahs: 206},
-            {num: 8, name: "الأنفال", ayahs: 75},
-            {num: 9, name: "التوبة", ayahs: 129},
-            {num: 10, name: "يونس", ayahs: 109},
-            {num: 11, name: "هود", ayahs: 123},
-            {num: 12, name: "يوسف", ayahs: 111},
-            {num: 13, name: "الرعد", ayahs: 43},
-            {num: 14, name: "إبراهيم", ayahs: 52},
-            {num: 15, name: "الحجر", ayahs: 99},
-            {num: 16, name: "النحل", ayahs: 128},
-            {num: 17, name: "الإسراء", ayahs: 111},
-            {num: 18, name: "الكهف", ayahs: 110},
-            {num: 19, name: "مريم", ayahs: 98},
-            {num: 20, name: "طه", ayahs: 135}
-        ];
-
-        const azkar = [
-            {text: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", count: "مرة واحدة"},
-            {text: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ", count: "مرة واحدة"},
-            {text: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ", count: "مرة واحدة"},
-            {text: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", count: "100 مرة"},
-            {text: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", count: "10 مرات"},
-            {text: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", count: "100 مرة"}
-        ];
-
-        const ahadith = [
-            {text: "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى", source: "صحيح البخاري"},
-            {text: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ", source: "صحيح البخاري ومسلم"},
-            {text: "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ", source: "صحيح البخاري"},
-            {text: "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ", source: "صحيح مسلم"},
-            {text: "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ
+            <div                    
