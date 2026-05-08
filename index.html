@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=1.0, user-scalable=yes" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pastebin.com - Not Found (#404)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>موقع KING</title>
+  <style>
+    body{background:#0f172a;color:#fff;font-family:sans-serif;margin:0;padding:20px;text-align:center}
+    .login{max-width:400px;margin:50px auto;background:#1e293b;padding:30px;border-radius:12px}
+    input{width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px;background:#334155;color:#fff}
+    button{width:100%;padding:12px;background:#38bdf8;border:none;border-radius:8px;color:#000;font-weight:bold;cursor:pointer}
+    .hidden{display:none}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:30px 0}
+    .card{background:#1e293b;padding:20px;border-radius:12px;cursor:pointer}
+  </style>
 </head>
 <body>
-
-
-<h1>Not Found (#404)</h1>
-<p>This page is no longer available. It has either expired, been removed by its creator, or removed by one of the Pastebin staff.</p>
-
+  <div id="login" class="login">
+    <h2>مرحباً بك في موقع KING 👑</h2>
+    <input type="text" id="user" placeholder="اسم المستخدم">
+    <input type="password" id="pass" placeholder="كلمة المرور">
+    <button onclick="login()">دخول</button>
+  </div>
+  <div id="main" class="hidden">
+    <h1>أهلاً بيك يا KING 🔥</h1>
+    <div class="grid">
+      <div class="card" onclick="alert('قريباً')">📷 الصور</div>
+      <div class="card" onclick="alert('قريباً')">🎬 الفيديوهات</div>
+      <div class="card" onclick="alert('قريباً')">📁 الملفات</div>
+      <div class="card" onclick="window.open('https://quran.com','_blank')">📖 القرآن الكريم</div>
+    </div>
+  </div>
+  <script>
+    function login(){
+      if(document.getElementById('user').value){
+        localStorage.setItem('king','1');
+        showMain();
+      }else{alert('اكتب أي اسم يا KING')}
+    }
+    function showMain(){
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('main').classList.remove('hidden');
+    }
+    if(localStorage.getItem('king')) showMain();
+  </script>
 </body>
 </html>
