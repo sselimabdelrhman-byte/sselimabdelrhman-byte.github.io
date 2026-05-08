@@ -3,60 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>منصة Al King الإسلامية</title>
+    <title>منصة Al King القرآنية</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box }
         body { font-family: Arial; background: #0a4d2e; color: #FFD700; min-height: 100vh }
-        .container { width: 95%; max-width: 600px; margin: 0 auto; padding: 15px; text-align: center }
-        .box { background: #1a1a1a; padding: 25px; border-radius: 20px; border: 3px solid #FFD700; margin-top: 30px; box-shadow: 0 0 20px rgba(255,215,0,0.3) }
+        .container { width: 95%; max-width: 800px; margin: 0 auto; padding: 15px; text-align: center }
+        .box { background: #1a1a1a; padding: 25px; border-radius: 20px; border: 3px solid #FFD700; margin: 20px 0; box-shadow: 0 0 20px rgba(255,215,0,0.3) }
         #welcome { display: block }
-        #welcome img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #FFD700; margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 15px #FFD700 }
-        h1 { font-size: 2rem; margin-bottom: 10px; text-shadow: 0 0 10px #FFD700 }
-        .verse { color: #fff; font-size: 1.2rem; margin: 20px 0; line-height: 1.8 }
-        .king-name { color: #FFD700; font-size: 1.5rem; font-weight: bold; margin: 15px 0 }
+        #welcome img { width: 160px; height: 160px; border-radius: 50%; border: 5px solid #FFD700; margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 20px #FFD700 }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 10px #FFD700 }
+        .verse { color: #fff; font-size: 1.2rem; margin: 20px 0; line-height: 1.9 }
+        .king-name { color: #FFD700; font-size: 1.8rem; font-weight: bold; margin: 15px 0; text-shadow: 0 0 15px #FFD700 }
         #login { display: none }
-        input { width: 100%; padding: 12px; margin: 8px 0; background: #000; border: 2px solid #FFD700; border-radius: 10px; color: white; font-size: 16px }
-        button { width: 100%; padding: 14px; background: #FFD700; color: #000; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px }
+        input { width: 100%; padding: 14px; margin: 10px 0; background: #000; border: 2px solid #FFD700; border-radius: 12px; color: white; font-size: 16px }
+        button { width: 100%; padding: 16px; background: #FFD700; color: #000; border: none; border-radius: 12px; font-size: 19px; font-weight: bold; cursor: pointer; margin-top: 12px }
         #platform { display: none; text-align: right }
-        .section { background: #0a2e1a; padding: 15px; border-radius: 15px; margin: 12px 0; border: 2px solid #FFD700 }
-        .section h2 { color: #FFD700; margin-bottom: 8px; font-size: 1.2rem }
-        .section p { color: #fff; line-height: 1.9; font-size: 1rem }
-        #logoutBtn { background: #8B0000; color: white; margin-top: 15px }
+        .section { background: #0a2e1a; padding: 20px; border-radius: 18px; margin: 15px 0; border: 3px solid #FFD700 }
+        .section h2 { color: #FFD700; margin-bottom: 12px; font-size: 1.4rem; text-align: center }
+        .section p, .section li { color: #fff; line-height: 2; font-size: 1.1rem; margin: 8px 0 }
+        .section ul { list-style: none; padding-right: 15px }
+        .section li::before { content: "✨ "; color: #FFD700 }
+        .quran-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0 }
+        .stat { background: #000; padding: 12px; border-radius: 10px; border: 2px solid #FFD700 }
+        .stat-num { font-size: 1.8rem; color: #FFD700; font-weight: bold }
+        #logoutBtn { background: #8B0000; color: white; margin-top: 20px }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="welcome" class="box">
             <img src="Screenshot_20260506_000452_com.cloudgen.lolli.jpg" alt="Al King">
-            <h1>🕌 منصة Al King الإسلامية 🕌</h1>
-            <p class="king-name">مرحباً بك يا Al King 👑</p>
-            <p class="verse">"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ"</p>
-            <p style="color:#FFD700;margin:15px 0">نورت المنصة يا ملك 👑</p>
-            <button onclick="showLogin()">دخول منصة Al King</button>
+            <h1>🕌 منصة Al King القرآنية 🕌</h1>
+            <p class="king-name">أهلاً وسهلاً يا Al King 👑</p>
+            <p class="verse">"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ"</p>
+            <p style="color:#FFD700;margin:15px 0;font-size:1.1rem">منصتك الخاصة للقرآن الكريم يا ملك</p>
+            <button onclick="showLogin()">دخول منصة القرآن</button>
         </div>
         <div id="login" class="box">
             <h1>تسجيل الدخول</h1>
             <p style="color:#FFD700;margin-bottom:15px">أهلاً Al King سجل دخولك</p>
             <input type="email" id="email" placeholder="البريد الإلكتروني">
             <input type="password" id="password" placeholder="كلمة السر">
-            <button onclick="enterPlatform()">دخول</button>
+            <button onclick="enterPlatform()">دخول المنصة القرآنية</button>
             <button onclick="backToWelcome()" style="background:#444;color:#FFD700">رجوع</button>
         </div>
         <div id="platform" class="box">
+            <img src="Screenshot_20260506_000452_com.cloudgen.lolli.jpg" alt="Al King" style="width:100px;height:100px;border-radius:50%;border:3px solid #FFD700;margin:0 auto 15px;display:block">
             <h1>أهلاً بك يا Al King ✨</h1>
-            <p style="color:white;text-align:center;margin-bottom:15px">مرحباً: <span id="userEmail"></span></p>
+            <p style="color:white;text-align:center;margin-bottom:20px;font-size:1.1rem">مرحباً: <span id="userEmail"></span></p>
+            
             <div class="section">
-                <h2>📖 آية اليوم</h2>
-                <p class="verse">"اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ"</p>
+                <h2>📖 معلومات عن القرآن الكريم</h2>
+                <div class="quran-stats">
+                    <div class="stat">
+                        <div class="stat-num">114</div>
+                        <p>سورة</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">6236</div>
+                        <p>آية</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">30</div>
+                        <p>جزء</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">60</div>
+                        <p>حزب</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>أول ما نزل: اقرأ باسم ربك</li>
+                    <li>آخر ما نزل: واتقوا يوماً ترجعون فيه إلى الله</li>
+                    <li>أطول سورة: البقرة 286 آية</li>
+                    <li>أقصر سورة: الكوثر 3 آيات</li>
+                    <li>أطول آية: آية الدين في البقرة 282</li>
+                    <li>نزل في 23 سنة</li>
+                </ul>
             </div>
+
             <div class="section">
-                <h2>📜 حديث شريف</h2>
-                <p>"قال ﷺ: من سلك طريقاً يلتمس فيه علماً سهل الله له به طريقاً إلى الجنة"</p>
+                <h2>🕋 أسماء القرآن الكريم</h2>
+                <p>1. القرآن - 2. الكتاب - 3. الفرقان - 4. الذكر - 5. النور<br>
+                   6. الهدى - 7. الشفاء - 8. الرحمة - 9. الموعظة - 10. الحق</p>
             </div>
+
             <div class="section">
-                <h2>🕋 رسالة خاصة لـ Al King</h2>
-                <p>الله يوفقك يا KING وينور دربك ويحفظك من كل شر 👑<br>خليك دايماً قريب من ربنا</p>
+                <h2>⭐ فضل قراءة القرآن</h2>
+                <ul>
+                    <li>قال ﷺ: "اقرؤوا القرآن فإنه يأتي يوم القيامة شفيعاً لأصحابه"</li>
+                    <li>الحرف بحسنة والحسنة بعشر أمثالها</li>
+                    <li>يرفع الله به أقواماً ويضع به آخرين</li>
+                    <li>أهل القرآن هم أهل الله وخاصته</li>
+                    <li>البيت الذي يُقرأ فيه القرآن يكثر خيره</li>
+                </ul>
             </div>
+
+            <div class="section">
+                <h2>📚 السور المكية والمدنية</h2>
+                <p><strong style="color:#FFD700">المكية: 86 سورة</strong> - نزلت في مكة قبل الهجرة<br>
+                   تتكلم عن التوحيد والعقيدة وقصص الأنبياء<br><br>
+                   <strong style="color:#FFD700">المدنية: 28 سورة</strong> - نزلت في المدينة بعد الهجرة<br>
+                   تتكلم عن التشريع والأحكام والمعاملات</p>
+            </div>
+
+            <div class="section">
+                <h2>💎 آية الكرسي - أعظم آية</h2>
+                <p class="verse">"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ"</p>
+            </div>
+
+            <div class="section">
+                <h2>🎯 رسالة خاصة لـ Al King</h2>
+                <p>الله يوفقك يا KING ويجعلك من أهل القرآن 👑<br>
+                   اللي هم أهل الله وخاصته<br>
+                   خليك دايماً مع القرآن وهو هيكون صاحبك في الدنيا والآخرة</p>
+            </div>
+
             <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
         </div>
     </div>
