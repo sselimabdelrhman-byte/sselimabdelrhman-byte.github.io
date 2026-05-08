@@ -3,47 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ده العنوان اللي هيظهر في جوجل لما حد يكتب King -->
     <title>King | منصة Al King الرسمية</title>
-    <meta name="description" content="اهلا بكم في منصة Al King - الموقع الرسمي للملك">
-    <meta name="keywords" content="King, Al King, منصة الكنج, منصة Al King, الملك">
+    <meta name="description" content="اهلا بكم في منصة Al King - سجل دخولك">
     
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
             background: #000;
             color: #FFD700;
-            text-align: center;
-            margin: 0;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
         .box {
             background: #1a1a1a;
-            padding: 50px 30px;
+            padding: 30px;
             border-radius: 20px;
             border: 3px solid #FFD700;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
         }
-        h1 { 
-            font-size: 3rem; 
-            margin: 0 0 15px 0;
-            text-shadow: 0 0 15px #FFD700;
+        /* شاشة الترحيب */
+        #welcome { display: block; }
+        #welcome img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #FFD700;
+            margin-bottom: 20px;
+            object-fit: cover;
         }
-        h2 { 
-            font-size: 1.8rem; 
-            color: white; 
-            margin: 0;
+        h1 { font-size: 2rem; margin-bottom: 15px; text-shadow: 0 0 15px #FFD700; }
+        
+        /* شاشة تسجيل الدخول */
+        #login { display: none; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #000;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
         }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        /* شاشة المنصة */
+        #platform { display: none; }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>👑 اهلا بكم في منصة Al King 👑</h1>
-        <h2>KING Platform</h2>
+    <div class="container">
+        
+        <!-- 1. شاشة الترحيب بالصورة -->
+        <div id="welcome" class="box">
+            <!-- حط لينك صورتك هنا بدل اللينك ده -->
+            <img src="https://i.imgur.com/8Km9tLL.jpg" alt="King">
+            <h1>👑 اهلا بكم في منصة Al King 👑</h1>
+            <button onclick="showLogin()">دخول المنصة</button>
+        </div>
+
+        <!-- 2. شاشة تسجيل الدخول -->
+        <div id="login" class="box">
+            <h1>تسجيل الدخول</h1>
+            <input type="text" id="name" placeholder="الاسم بالكامل" required>
+            <input type="email" id="email" placeholder="الإيميل" required>
+            <input type="password" id="password" placeholder="كلمة السر" required>
+            <button onclick="enterPlatform()">دخول</button>
+        </div>
+
+        <!-- 3. شاشة المنصة بعد الدخول -->
+        <div id="platform" class="box">
+            <h1>مرحباً بك في المنصة يا <span id="userName"></span> 👑</h1>
+            <p style="color:white; margin-top:20px;">هنا هنحط محتوى المنصة قريب...</p>
+            <button onclick="logout()" style="background:#444; color:#FFD700; margin-top:30px;">تسجيل خروج</button>
+        </div>
+
     </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        }
+        
+        function enterPlatform() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let pass = document.getElementById('password').value;
+            
+            if(name && email && pass) {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('platform').style.display = 'block';
+                document.getElementById('userName').innerText = name;
+            } else {
+                alert('اكتب بياناتك كلها يا KING');
+            }
+        }
+        
+        function logout() {
+            document.getElementById('platform').style.display = 'none';
+            document.getElementById('welcome').style.display = 'block';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
 </body>
 </html>
