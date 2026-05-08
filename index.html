@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>موسوعة Al King القرآنية الشاملة</title>
+    <title>موسوعة Al King الإسلامية الشاملة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box }
         html { scroll-behavior: smooth }
-        body { 
-            font-family: 'Arial', sans-serif; 
-            background: url('https://i.ibb.co/3FqXJQK/islamic-pattern.jpg') fixed;
-            background-color: #0a1f14;
-            background-size: cover;
-            color: #FFD700; 
-            min-height: 100vh 
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: url('https://i.ibb.co/3FqXJQK/islamic-pattern.jpg') fixed center/cover;
+            background-color: #051a10;
+            color: #FFD700;
+            min-height: 100vh;
+            padding-top: 70px;
         }
-        
-        /* طبقة شفافة فوق الخلفية عشان الكلام يبان */
         body::before {
             content: '';
             position: fixed;
@@ -24,266 +23,313 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 20, 10, 0.85);
+            background: rgba(0, 15, 8, 0.92);
             z-index: -1;
         }
-        
-        .navbar {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 20px 0;
-            border-bottom: 4px solid #FFD700;
-            position: sticky;
+
+       .navbar {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 10px 0;
+            border-bottom: 3px solid #FFD700;
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(255,215,0,0.5);
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(255,215,0,0.4);
         }
-        .nav-container {
+       .nav-container {
             width: 95%;
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
         }
-        .logo { 
-            font-size: 2.2rem; 
-            font-weight: bold; 
-            text-shadow: 0 0 20px #FFD700;
-        }
-        .nav-links {
-            display: flex;
-            gap: 15px;
-            list-style: none;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .nav-links a {
-            color: #FFD700;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 12px 22px;
-            border: 3px solid #FFD700;
-            border-radius: 12px;
-            transition: 0.3s;
+       .logo {
+            font-size: 1.3rem;
             font-weight: bold;
-            display: block;
+            text-shadow: 0 0 10px #FFD700;
         }
-        .nav-links a:hover {
-            background: #FFD700;
-            color: #000;
-            box-shadow: 0 0 20px #FFD700;
-            transform: translateY(-3px);
-        }
-
-        .container { 
-            width: 98%; 
-            max-width: 1600px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-        }
-
-        #welcome { display: block }
-        .welcome-box { 
-            background: rgba(10, 10, 10, 0.95);
-            padding: 60px 40px; 
-            border-radius: 30px; 
-            border: 5px solid #FFD700; 
-            margin: 40px 0; 
-            text-align: center;
-            box-shadow: 0 0 50px rgba(255,215,0,0.6) 
-        }
-        .profile-img { 
-            width: 220px; 
-            height: 220px; 
-            border-radius: 50%; 
-            border: 8px solid #FFD700; 
-            margin: 0 auto 30px; 
-            object-fit: cover; 
-            box-shadow: 0 0 40px #FFD700; 
-            display: block 
-        }
-        h1 { font-size: 3.5rem; margin-bottom: 25px; text-shadow: 0 0 20px #FFD700 }
-        .king-name { color: #FFD700; font-size: 2.5rem; font-weight: bold; margin: 30px 0; text-shadow: 0 0 25px #FFD700 }
-        .verse { color: #fff; font-size: 1.8rem; margin: 35px 0; line-height: 2.2 }
-        
-        #login { display: none }
-        .login-box { 
-            background: rgba(10, 10, 10, 0.95);
-            padding: 50px; 
-            border-radius: 30px; 
-            border: 5px solid #FFD700; 
-            margin: 40px auto;
-            max-width: 700px;
-            text-align: center;
-        }
-        input, select, textarea { 
-            width: 100%; 
-            padding: 20px; 
-            margin: 18px 0; 
-            background: #000; 
-            border: 3px solid #FFD700; 
-            border-radius: 18px; 
-            color: white; 
-            font-size: 20px;
-            font-family: Arial;
-        }
-        button { 
-            width: 100%; 
-            padding: 20px; 
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000; 
-            border: none; 
-            border-radius: 18px; 
-            font-size: 24px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-top: 20px;
-            transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-        }
-        button:hover { transform: scale(1.03); box-shadow: 0 8px 30px #FFD700 }
-
-        #platform { display: none }
-        .platform-header {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 40px;
-            border-radius: 30px;
-            border: 5px solid #FFD700;
-            margin-bottom: 50px;
+       .user-info {
             display: flex;
             align-items: center;
-            gap: 30px;
-            box-shadow: 0 0 40px rgba(255,215,0,0.4);
+            gap: 10px;
+            font-size: 0.9rem;
         }
-        .platform-header img {
-            width: 150px;
-            height: 150px;
+       .user-info img {
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            border: 6px solid #FFD700;
-            box-shadow: 0 0 30px #FFD700;
+            border: 2px solid #FFD700;
         }
-        
-        .grid-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
+
+       .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 10px;
         }
-        
-        .section { 
-            background: rgba(10, 30, 20, 0.95);
-            padding: 40px; 
-            border-radius: 25px; 
-            border: 4px solid #FFD700;
-            transition: 0.4s;
-            position: relative;
+
+        /* تسجيل الدخول */
+        #login {
+            display: flex;
+            min-height: calc(100vh - 100px);
+            align-items: center;
+            justify-content: center;
         }
-        .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(255,215,0,0.5);
-        }
-        .section h2 { 
-            color: #FFD700; 
-            margin-bottom: 30px; 
-            font-size: 2.2rem; 
-            text-align: center;
-            border-bottom: 4px solid #FFD700;
-            padding-bottom: 15px;
-        }
-        .section h3 {
-            color: #FFD700;
-            margin: 25px 0 18px;
-            font-size: 1.6rem;
-        }
-        .section p, .section li { 
-            color: #fff; 
-            line-height: 2.5; 
-            font-size: 1.3rem; 
-            margin: 16px 0 
-        }
-        .section ul { list-style: none; padding-right: 25px }
-        .section li::before { content: "✨ "; color: #FFD700; font-size: 1.4rem }
-        
-        .quran-stats { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 25px; 
-            margin: 30px 0 
-        }
-        .stat { 
-            background: #000; 
-            padding: 30px; 
-            border-radius: 18px; 
+       .login-box {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 20px;
             border: 3px solid #FFD700;
+            max-width: 400px;
+            width: 100%;
             text-align: center;
-            transition: 0.3s;
         }
-        .stat:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #FFD700;
-        }
-        .stat-num { font-size: 3.2rem; color: #FFD700; font-weight: bold; text-shadow: 0 0 10px #FFD700 }
-        
-        .suwar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-        .sura-card {
+       .login-box h1 { font-size: 1.6rem; margin-bottom: 20px; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
             background: #000;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-family: 'Cairo';
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+            font-family: 'Cairo';
+        }
+
+        /* المحتوى الرئيسي */
+        #main { display: none }
+
+        /* الكروت الرئيسية زي السكرين */
+       .main-card {
+            background: rgba(255, 250, 240, 0.98);
+            color: #0a4d2e;
             padding: 25px;
             border-radius: 15px;
+            border: 3px solid #FFD700;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
+            transition: 0.3s;
+        }
+       .main-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255,215,0,0.5);
+        }
+       .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+       .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #0a4d2e;
+        }
+       .card-icon { font-size: 2rem; }
+       .card-desc {
+            color: #1a5c3a;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+       .card-btn {
+            background: #0a4d2e;
+            color: #FFD700;
+            padding: 12px 30px;
+            border: 2px solid #0a4d2e;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Cairo';
+        }
+       .card-btn:hover {
+            background: #FFD700;
+            color: #0a4d2e;
+        }
+
+        /* صفحة المصحف */
+        #mushafPage { display: none }
+       .mushaf-header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       .back-btn {
+            background: #FFD700;
+            color: #000;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Cairo';
+        }
+
+        /* قائمة السور */
+       .suras-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+       .sura-item {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 12px;
             border: 2px solid #FFD700;
             text-align: center;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
-        .sura-card:hover {
+       .sura-item:hover {
             background: #FFD700;
             color: #000;
             transform: scale(1.05);
         }
-        .sura-number {
-            font-size: 2rem;
+       .sura-num {
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 5px;
         }
-        
-        .tajweed-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
+       .sura-name {
+            font-size: 0.95rem;
+            font-family: 'Amiri', serif;
         }
-        .tajweed-table th, .tajweed-table td {
-            border: 2px solid #FFD700;
-            padding: 18px;
+
+        /* صفحة قراءة السورة */
+        #suraPage { display: none }
+       .sura-content {
+            background: rgba(255, 250, 240, 0.98);
+            color: #0a1f14;
+            padding: 30px;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            margin-bottom: 20px;
+            min-height: 500px;
+        }
+       .sura-title {
             text-align: center;
+            font-size: 2rem;
+            color: #0a4d2e;
+            margin-bottom: 25px;
+            font-family: 'Amiri', serif;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
         }
-        .tajweed-table th {
+       .ayah {
+            font-size: 1.5rem;
+            line-height: 2.5;
+            margin-bottom: 20px;
+            font-family: 'Amiri', serif;
+            text-align: justify;
+            color: #0a1f14;
+        }
+       .ayah-num {
+            display: inline-block;
+            background: #0a4d2e;
+            color: #FFD700;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            margin: 0 5px;
+        }
+       .page-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.95);
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+        }
+       .page-btn {
             background: #FFD700;
             color: #000;
-            font-size: 1.3rem;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Cairo';
         }
-        
-        #logoutBtn { 
-            background: linear-gradient(135deg, #8B0000 0%, #600000 100%);
-            color: white; 
-            margin: 50px auto 0;
-            max-width: 500px;
+       .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+       .page-info {
+            color: #FFD700;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* الناف بار السفلي زي السكرين */
+       .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.98);
+            border-top: 3px solid #FFD700;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            z-index: 998;
+        }
+       .nav-item {
+            text-align: center;
+            color: #FFD700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+       .nav-item.active {
+            color: #fff;
+        }
+       .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 3px;
+        }
+
+        #logoutBtn {
+            background: #8B0000;
+            color: white;
+            margin: 20px auto;
+            max-width: 250px;
             display: block;
+            padding: 10px;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
-            .grid-sections { grid-template-columns: 1fr; gap: 30px }
-            .nav-links { gap: 10px }
-            .nav-links a { padding: 10px 15px; font-size: 1rem }
-            h1 { font-size: 2.2rem }
-            .platform-header { flex-direction: column; text-align: center }
-            .quran-stats { grid-template-columns: 1fr 1fr }
-            .suwar-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) }
+           .suras-list { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+           .ayah { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -291,200 +337,287 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">🕌 موسوعة Al King</div>
-            <ul class="nav-links">
-                <li><a href="#" onclick="goToSection('home')">الرئيسية</a></li>
-                <li><a href="#" onclick="goToSection('suwar')">فهرس السور</a></li>
-                <li><a href="#" onclick="goToSection('tafsir')">التفسير</a></li>
-                <li><a href="#" onclick="goToSection('tajweed')">التجويد</a></li>
-                <li><a href="#" onclick="goToSection('qiraat')">القراءات</a></li>
-                <li><a href="#" onclick="goToSection('stories')">القصص</a></li>
-                <li><a href="#" onclick="goToSection('contact')">تواصل معنا</a></li>
-            </ul>
+            <div class="user-info" id="userInfo" style="display:none">
+                <span id="userName"></span>
+                <img src="king.jpg" alt="User">
+            </div>
         </div>
     </nav>
 
     <div class="container">
-        <div id="welcome">
-            <div class="welcome-box">
-                <img class="profile-img" src="king.jpg" alt="Al King">
-                <h1>🕌 موسوعة Al King القرآنية الشاملة 🕌</h1>
-                <p class="king-name">أهلاً وسهلاً يا Al King 👑</p>
-                <p class="verse">"وَنَزَّلْنَا عَلَيْكَ الْكِتَابَ تِبْيَانًا لِّكُلِّ شَيْءٍ"</p>
-                <p style="color:#FFD700;margin:30px 0;font-size:1.6rem">أكبر موسوعة قرآنية شاملة - كل ما يخص القرآن الكريم</p>
-                <button onclick="showLogin()">دخول الموسوعة القرآنية</button>
-            </div>
-        </div>
-
+        <!-- تسجيل الدخول -->
         <div id="login">
             <div class="login-box">
-                <h1>تسجيل الدخول للموسوعة</h1>
-                <p style="color:#FFD700;margin-bottom:30px;font-size:1.4rem">أهلاً Al King سجل دخولك</p>
+                <h1>🕌 موسوعة Al King</h1>
+                <p style="color:#FFD700;margin-bottom:20px;font-size:0.9rem">أكبر موسوعة إسلامية شاملة</p>
                 <input type="email" id="email" placeholder="البريد الإلكتروني">
                 <input type="password" id="password" placeholder="كلمة السر">
-                <button onclick="enterPlatform()">دخول الموسوعة</button>
-                <button onclick="backToWelcome()" style="background:#444;color:#FFD700">رجوع</button>
+                <button onclick="enterApp()">دخول الموسوعة</button>
             </div>
         </div>
 
-        <div id="platform">
-            <div class="platform-header" id="home">
-                <img src="king.jpg" alt="Al King">
-                <div>
-                    <h1 style="text-align:right">أهلاً بك يا Al King ✨</h1>
-                    <p style="color:white;font-size:1.5rem;text-align:right">مرحباً: <span id="userEmail"></span></p>
-                    <p style="color:#FFD700;font-size:1.3rem;text-align:right">موسوعتك الشاملة للقرآن الكريم</p>
+        <!-- الصفحة الرئيسية - كروت -->
+        <div id="main">
+            <!-- كارت المصحف -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">📖 قراءة القرآن الكريم</div>
+                    <div class="card-icon">🕌</div>
+                </div>
+                <div class="card-desc">
+                    القراءة عن طريق المصحف النصي، مع مزايا مثل عرض التجويد، وإضافة العلامات وتغيير حجم الخط، مع عرض الترجمات والتعلم بالاستماع آية بأيه مع أشهر القراء.
+                </div>
+                <button class="card-btn" onclick="openMushaf()">فتح المصحف</button>
+            </div>
+
+            <!-- كارت الاستماع -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">🎧 استماع وتنزيل</div>
+                    <div class="card-icon">🎙️</div>
+                </div>
+                <div class="card-desc">
+                    عبد الباسط عبد الصمد : مرتل<br>
+                    محمود خليل الحصري : ورش عن نافع<br>
+                    المنشاوي : المصحف المعلم
+                </div>
+                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">استكشف</button>
+            </div>
+
+            <!-- كارت الأذكار -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">📿 الأذكار اليومية</div>
+                    <div class="card-icon">🤲</div>
+                </div>
+                <div class="card-desc">
+                    أذكار الصباح والمساء، أذكار النوم، أذكار الصلاة، أذكار بعد الصلاة، أدعية من القرآن والسنة
+                </div>
+                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">فتح الأذكار</button>
+            </div>
+
+            <!-- كارت آية اليوم -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">✨ آية اليوم</div>
+                    <div class="card-icon">📜</div>
+                </div>
+                <div class="card-desc" style="font-family: 'Amiri', serif; font-size: 1.2rem; text-align: center; color: #0a4d2e;">
+                    وَعَرَضْنَا جَهَنَّمَ يَوْمَئِذٍ لِّلْكَافِرِينَ عَرْضًا
+                    <br><small style="font-size: 0.8rem;">الكهف (100)</small>
                 </div>
             </div>
 
-            <div class="grid-sections">
-                <div class="section">
-                    <h2>📊 إحصائيات القرآن الكريم</h2>
-                    <div class="quran-stats">
-                        <div class="stat"><div class="stat-num">114</div><p>سورة</p></div>
-                        <div class="stat"><div class="stat-num">6236</div><p>آية</p></div>
-                        <div class="stat"><div class="stat-num">30</div><p>جزء</p></div>
-                        <div class="stat"><div class="stat-num">60</div><p>حزب</p></div>
-                        <div class="stat"><div class="stat-num">240</div><p>ربع</p></div>
-                        <div class="stat"><div class="stat-num">77439</div><p>كلمة</p></div>
-                    </div>
+            <!-- كارت الحديث -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">📚 الأحاديث النبوية</div>
+                    <div class="card-icon">📖</div>
                 </div>
+                <div class="card-desc">
+                    صحيح البخاري، صحيح مسلم، سنن أبي داود، سنن الترمذي، سنن النسائي، سنن ابن ماجه، الأربعين النووية
+                </div>
+                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">تصفح الأحاديث</button>
+            </div>
 
-                <div class="section" id="suwar">
-                    <h2>📖 فهرس السور الـ 114</h2>
-                    <h3>السور المكية 86</h3>
-                    <div class="suwar-grid">
-                        <div class="sura-card"><div class="sura-number">1</div><p>الفاتحة</p><small>7 آيات</small></div>
-                        <div class="sura-card"><div class="sura-number">6</div><p>الأنعام</p><small>165 آية</small></div>
-                        <div class="sura-card"><div class="sura-number">7</div><p>الأعراف</p><small>206 آية</small></div>
-                        <div class="sura-card"><div class="sura-number">10</div><p>يونس</p><small>109 آية</small></div>
-                    </div>
-                    <h3>السور المدنية 28</h3>
-                    <div class="suwar-grid">
-                        <div class="sura-card"><div class="sura-number">2</div><p>البقرة</p><small>286 آية</small></div>
-                        <div class="sura-card"><div class="sura-number">3</div><p>آل عمران</p><small>200 آية</small></div>
-                        <div class="sura-card"><div class="sura-number">4</div><p>النساء</p><small>176 آية</small></div>
-                        <div class="sura-card"><div class="sura-number">5</div><p>المائدة</p><small>120 آية</small></div>
-                    </div>
+            <!-- كارت الصلاة -->
+            <div class="main-card">
+                <div class="card-header">
+                    <div class="card-title">🕋 مواقيت الصلاة</div>
+                    <div class="card-icon">🕌</div>
                 </div>
-
-                <div class="section" id="tajweed">
-                    <h2>🎵 أحكام التجويد كاملة</h2>
-                    <h3>1. أحكام النون الساكنة والتنوين</h3>
-                    <table class="tajweed-table">
-                        <tr><th>الحكم</th><th>الحروف</th><th>المثال</th></tr>
-                        <tr><td>الإظهار</td><td>ء ه ع ح غ خ</td><td>مِنْ هَادٍ</td></tr>
-                        <tr><td>الإدغام</td><td>يرملون</td><td>مِن رَّبِّهِم</td></tr>
-                        <tr><td>الإقلاب</td><td>ب</td><td>مِن بَعْدِ</td></tr>
-                        <tr><td>الإخفاء</td><td>باقي الحروف</td><td>مِن قَبْلِ</td></tr>
-                    </table>
-                    <h3>2. المدود</h3>
-                    <ul>
-                        <li>المد الطبيعي: حركتان</li>
-                        <li>المد المتصل: 4-5 حركات</li>
-                        <li>المد المنفصل: 4-5 حركات</li>
-                        <li>المد اللازم: 6 حركات</li>
-                    </ul>
+                <div class="card-desc">
+                    مواقيت الصلاة حسب موقعك، اتجاه القبلة، الأذان، أدعية الصلاة، كيفية الصلاة الصحيحة
                 </div>
-
-                <div class="section" id="qiraat">
-                    <h2>📿 القراءات العشر المتواترة</h2>
-                    <ul>
-                        <li><strong>نافع المدني:</strong> رواية ورش + رواية قالون</li>
-                        <li><strong>ابن كثير المكي:</strong> رواية البزي + رواية قنبل</li>
-                        <li><strong>أبو عمرو البصري:</strong> رواية الدوري + رواية السوسي</li>
-                        <li><strong>ابن عامر الشامي:</strong> رواية هشام + رواية ابن ذكوان</li>
-                        <li><strong>عاصم الكوفي:</strong> رواية شعبة + رواية حفص</li>
-                        <li><strong>حمزة الكوفي:</strong> رواية خلف + رواية خلاد</li>
-                        <li><strong>الكسائي الكوفي:</strong> رواية أبي الحارث + رواية الدوري</li>
-                        <li><strong>أبو جعفر:</strong> رواية ابن وردان + رواية ابن جماز</li>
-                        <li><strong>يعقوب الحضرمي:</strong> رواية رويس + رواية روح</li>
-                        <li><strong>خلف العاشر:</strong> رواية إسحاق + رواية إدريس</li>
-                    </ul>
-                </div>
-
-                <div class="section" id="tafsir">
-                    <h2>📚 أشهر كتب التفسير</h2>
-                    <h3>التفسير بالمأثور</h3>
-                    <ul>
-                        <li>تفسير ابن كثير</li>
-                        <li>تفسير الطبري</li>
-                        <li>تفسير البغوي</li>
-                        <li>الدر المنثور للسيوطي</li>
-                    </ul>
-                    <h3>التفسير بالرأي</h3>
-                    <ul>
-                        <li>تفسير الرازي - مفاتيح الغيب</li>
-                        <li>تفسير القرطبي - الجامع لأحكام القرآن</li>
-                        <li>في ظلال القرآن - سيد قطب</li>
-                    </ul>
-                </div>
-
-                <div class="section" id="stories">
-                    <h2>📕 قصص القرآن الكريم</h2>
-                    <h3>قصص الأنبياء</h3>
-                    <ul>
-                        <li>قصة آدم عليه السلام</li>
-                        <li>قصة نوح والطوفان</li>
-                        <li>قصة إبراهيم والنار</li>
-                        <li>قصة يوسف كاملة - أحسن القصص</li>
-                        <li>قصة موسى وفرعون</li>
-                        <li>قصة عيسى ومريم</li>
-                    </ul>
-                    <h3>قصص أخرى</h3>
-                    <ul>
-                        <li>أصحاب الكهف</li>
-                        <li>ذو القرنين</li>
-                        <li>قارون</li>
-                        <li>أصحاب الفيل</li>
-                    </ul>
-                </div>
-
-                <div class="section" id="contact">
-                    <h2>📧 تواصل مع Al King</h2>
-                    <p style="text-align:center;margin-bottom:30px;font-size:1.3rem">عندك سؤال في القرآن؟ ابعتلي</p>
-                    <p style="text-align:center;color:#FFD700">جاري تجهيز الفورم - هنضيف Formspree قريب</p>
-                </div>
+                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">عرض المواقيت</button>
             </div>
 
             <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
         </div>
+
+        <!-- صفحة المصحف - قائمة السور -->
+        <div id="mushafPage">
+            <div class="mushaf-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2 style="color:#FFD700">📖 المصحف الشريف</h2>
+                <div></div>
+            </div>
+            <div class="suras-list" id="surasList"></div>
+        </div>
+
+        <!-- صفحة قراءة السورة -->
+        <div id="suraPage">
+            <div class="mushaf-header">
+                <button class="back-btn" onclick="backToMushaf()">← رجوع</button>
+                <h2 style="color:#FFD700" id="currentSuraName"></h2>
+                <div></div>
+            </div>
+            <div class="sura-content" id="suraContent"></div>
+            <div class="page-controls">
+                <button class="page-btn" id="prevBtn" onclick="prevPage()">← السابق</button>
+                <div class="page-info" id="pageInfo"></div>
+                <button class="page-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الناف بار السفلي -->
+    <div class="bottom-nav" id="bottomNav" style="display:none">
+        <div class="nav-item active" onclick="showSection('main')">
+            <div class="nav-icon">📖</div>
+            <div>القرآن</div>
+        </div>
+        <div class="nav-item" onclick="alert('قريباً')">
+            <div class="nav-icon">📿</div>
+            <div>الأذكار</div>
+        </div>
+        <div class="nav-item" onclick="alert('قريباً')">
+            <div class="nav-icon">📚</div>
+            <div>المزيد</div>
+        </div>
+        <div class="nav-item" onclick="alert('قريباً')">
+            <div class="nav-icon">🕋</div>
+            <div>الصلاة</div>
+        </div>
+        <div class="nav-item" onclick="alert('قريباً')">
+            <div class="nav-icon">🔍</div>
+            <div>استكشف</div>
+        </div>
     </div>
 
     <script>
-        function showLogin() {
-            document.getElementById('welcome').style.display = 'none';
-            document.getElementById('login').style.display = 'block';
-        }
-        function backToWelcome() {
-            document.getElementById('login').style.display = 'none';
-            document.getElementById('welcome').style.display = 'block';
-        }
-        function enterPlatform() {
+        // بيانات السور - هنحط 114 سورة
+        const suras = [
+            {num: 1, name: "الفاتحة", ayahs: 7, type: "مكية"},
+            {num: 2, name: "البقرة", ayahs: 286, type: "مدنية"},
+            {num: 3, name: "آل عمران", ayahs: 200, type: "مدنية"},
+            {num: 4, name: "النساء", ayahs: 176, type: "مدنية"},
+            {num: 5, name: "المائدة", ayahs: 120, type: "مدنية"},
+            {num: 6, name: "الأنعام", ayahs: 165, type: "مكية"},
+            {num: 7, name: "الأعراف", ayahs: 206, type: "مكية"},
+            {num: 8, name: "الأنفال", ayahs: 75, type: "مدنية"},
+            {num: 9, name: "التوبة", ayahs: 129, type: "مدنية"},
+            {num: 10, name: "يونس", ayahs: 109, type: "مكية"},
+            // هنكمل الباقي...
+        ];
+
+        let currentSura = null;
+        let currentPage = 0;
+        const ayahsPerPage = 5;
+
+        function enterApp() {
             let e = document.getElementById('email').value, p = document.getElementById('password').value;
             if (e && p) {
                 document.getElementById('login').style.display = 'none';
-                document.getElementById('platform').style.display = 'block';
-                document.getElementById('userEmail').innerText = e;
+                document.getElementById('main').style.display = 'block';
+                document.getElementById('bottomNav').style.display = 'flex';
+                document.getElementById('userInfo').style.display = 'flex';
+                document.getElementById('userName').innerText = e.split('@')[0];
+                window.scrollTo(0, 0);
             } else { alert('اكتب البريد وكلمة السر يا KING') }
         }
+
         function logout() {
-            document.getElementById('platform').style.display = 'none';
-            document.getElementById('welcome').style.display = 'block';
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('mushafPage').style.display = 'none';
+            document.getElementById('suraPage').style.display = 'none';
+            document.getElementById('bottomNav').style.display = 'none';
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('login').style.display = 'flex';
             document.getElementById('email').value = '';
             document.getElementById('password').value = '';
         }
-        
-        // دالة جديدة عشان الزراير تشتغل
-        function goToSection(id) {
-            // لو المستخدم مش مسجل دخول، دخله الأول
-            if (document.getElementById('platform').style.display !== 'block') {
-                alert('سجل دخول الأول يا KING عشان تشوف الأقسام');
-                showLogin();
-                return;
+
+        function openMushaf() {
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('mushafPage').style.display = 'block';
+            loadSuras();
+            window.scrollTo(0, 0);
+        }
+
+        function backToMain() {
+            document.getElementById('mushafPage').style.display = 'none';
+            document.getElementById('suraPage').style.display = 'none';
+            document.getElementById('main').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function backToMushaf() {
+            document.getElementById('suraPage').style.display = 'none';
+            document.getElementById('mushafPage').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function loadSuras() {
+            const list = document.getElementById('surasList');
+            list.innerHTML = '';
+            suras.forEach(sura => {
+                const div = document.createElement('div');
+                div.className = 'sura-item';
+                div.innerHTML = `
+                    <div class="sura-num">${sura.num}</div>
+                    <div class="sura-name">${sura.name}</div>
+                    <small>${sura.ayahs} آية</small>
+                `;
+                div.onclick = () => openSura(sura);
+                list.appendChild(div);
+            });
+        }
+
+        function openSura(sura) {
+            currentSura = sura;
+            currentPage = 0;
+            document.getElementById('mushafPage').style.display = 'none';
+            document.getElementById('suraPage').style.display = 'block';
+            document.getElementById('currentSuraName').innerText = `سورة ${sura.name}`;
+            loadSuraPage();
+            window.scrollTo(0, 0);
+        }
+
+        function loadSuraPage() {
+            const content = document.getElementById('suraContent');
+            const startAyah = currentPage * ayahsPerPage + 1;
+            const endAyah = Math.min(startAyah + ayahsPerPage - 1, currentSura.ayahs);
+
+            let html = `<div class="sura-title">سورة ${currentSura.name}</div>`;
+
+            // هنا هنحط الآيات الحقيقية - دلوقتي مثال
+            for(let i = startAyah; i <= endAyah; i++) {
+                html += `<div class="ayah">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+                    <span class="ayah-num">${i}</span>
+                </div>`;
             }
-            // وديه للقسم
-            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+
+            content.innerHTML = html;
+
+            // تحديث أزرار التنقل
+            const totalPages = Math.ceil(currentSura.ayahs / ayahsPerPage);
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage >= totalPages - 1;
+            document.getElementById('pageInfo').innerText = `صفحة ${currentPage + 1} من ${totalPages}`;
+        }
+
+        function nextPage() {
+            const totalPages = Math.ceil(currentSura.ayahs / ayahsPerPage);
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                loadSuraPage();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                loadSuraPage();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function showSection(section) {
+            backToMain();
         }
     </script>
 </body>
-    </html>
+                                                </html>
