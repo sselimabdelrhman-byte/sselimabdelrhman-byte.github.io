@@ -13,7 +13,6 @@
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0a1628 100%);
             color: #FFD700;
             min-height: 100vh;
-            position: relative;
         }
         body::before {
             content: '';
@@ -27,8 +26,6 @@
                 radial-gradient(circle at 80% 80%, rgba(255,215,0,0.03) 0%, transparent 50%);
             z-index: -1;
         }
-        
-        /* صفحة الترحيب - عريضة قصيرة زي ما طلبت */
         #welcome {
             display: flex;
             align-items: center;
@@ -38,61 +35,60 @@
         }
         .welcome-card {
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 30px 60px;
+            padding: 40px 30px;
             border-radius: 25px;
             border: 5px solid #FFD700;
-            max-width: 850px;
+            max-width: 900px;
             width: 100%;
-            box-shadow: 0 0 40px rgba(255,215,0,0.4), inset 0 0 20px rgba(255,215,0,0.1);
+            box-shadow: 0 0 40px rgba(255,215,0,0.4);
             text-align: center;
         }
         .welcome-card img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
             border: 6px solid #FFD700;
-            box-shadow: 0 0 30px #FFD700;
-            margin-bottom: 20px;
+            box-shadow: 0 0 40px #FFD700;
+            margin-bottom: 25px;
+            object-fit: cover;
         }
         .welcome-card h1 {
-            font-size: 2.3rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
             color: #FFD700;
             font-weight: 900;
             text-shadow: 0 0 15px rgba(255,215,0,0.5);
         }
         .welcome-card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
             color: #fff;
             font-weight: 600;
         }
         .welcome-card p {
             color: #FFD700;
-            font-size: 1rem;
-            margin-bottom: 25px;
-            line-height: 1.9;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 2;
         }
         .welcome-btn {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a1628;
-            padding: 16px 50px;
+            padding: 18px 60px;
             border: none;
             border-radius: 15px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
             transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+            box-shadow: 0 5px 25px rgba(255,215,0,0.5);
         }
         .welcome-btn:hover { 
             transform: scale(1.08);
-            box-shadow: 0 8px 30px rgba(255,215,0,0.6);
+            box-shadow: 0 8px 35px rgba(255,215,0,0.7);
         }
         .welcome-btn:active { transform: scale(0.98); }
-        
-        /* تسجيل البيانات */
         #register {
             display: none;
             min-height: 100vh;
@@ -150,7 +146,7 @@
         }
         .email-verify {
             background: #1a2942;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             border: 2px solid #FFD700;
             margin-top: 8px;
@@ -158,8 +154,8 @@
         }
         .email-verify p {
             color: #FFD700;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
         .verify-code {
             display: flex;
@@ -167,41 +163,44 @@
         }
         .verify-code input {
             flex: 1;
-            padding: 8px;
-            font-size: 1.2rem;
+            padding: 10px;
+            font-size: 1.3rem;
             text-align: center;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
+            font-weight: 900;
         }
         .verify-btn {
             background: #FFD700;
             color: #0a1628;
-            padding: 8px 15px;
+            padding: 10px 18px;
             border: none;
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
         }
         .register-btn {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a1628;
             border: none;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 900;
             cursor: pointer;
             margin-top: 20px;
             font-family: 'Cairo';
-            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
+            box-shadow: 0 5px 25px rgba(255,215,0,0.4);
         }
         .register-btn:active { transform: scale(0.98); }
-        
-        /* الناف بار */
+        .register-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
         .navbar {
             display: none;
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 3px solid #FFD700;
             position: fixed;
             top: 0;
@@ -218,41 +217,38 @@
             align-items: center;
         }
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 900;
             text-shadow: 0 0 10px #FFD700;
         }
         .user-info {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 700;
         }
         .user-info img {
-            width: 32px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            border: 2px solid #FFD700;
+            border: 3px solid #FFD700;
         }
-        
         .container {
             display: none;
             width: 95%;
             max-width: 1400px;
-            margin: 80px auto 80px;
+            margin: 90px auto 90px;
             padding: 0 10px;
         }
-        
         #main { display: block; }
-        
         .main-card {
             background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
             color: #0a1628;
-            padding: 22px;
+            padding: 25px;
             border-radius: 18px;
             border: 4px solid #FFD700;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             box-shadow: 0 6px 20px rgba(255,215,0,0.3);
             transition: 0.3s;
         }
@@ -264,28 +260,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: #0a1628;
         }
-        .card-icon { font-size: 2rem; }
+        .card-icon { font-size: 2.2rem; }
         .card-desc {
             color: #1a2942;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            line-height: 1.9;
+            font-size: 1rem;
+            margin-bottom: 14px;
             font-weight: 600;
         }
         .card-btn {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             color: #FFD700;
-            padding: 11px 25px;
+            padding: 13px 28px;
             border: 3px solid #0a1628;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 900;
             cursor: pointer;
             width: 100%;
@@ -297,14 +293,13 @@
             color: #0a1628;
         }
         .card-btn:active { transform: scale(0.98); }
-        
         #mushafPage, #azkarPage, #hadithPage, #salahPage, #fiqhPage, #seerahPage { display: none; }
         .page-header {
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 15px;
+            padding: 18px;
             border-radius: 15px;
             border: 3px solid #FFD700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -313,31 +308,30 @@
         .page-header h2 {
             color: #FFD700;
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         .back-btn {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a1628;
-            padding: 8px 20px;
+            padding: 10px 24px;
             border: none;
             border-radius: 10px;
             font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: 0.3s;
         }
         .back-btn:hover { transform: scale(1.05); }
-        
         .suras-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 12px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
         }
         .sura-item {
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
             border: 3px solid #FFD700;
             text-align: center;
@@ -352,57 +346,56 @@
             box-shadow: 0 5px 20px rgba(255,215,0,0.5);
         }
         .sura-num {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 900;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
         .sura-name {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-family: 'Amiri', serif;
             font-weight: 700;
         }
-        
         #suraPage { display: none; }
         .sura-content {
             background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
             color: #0a1628;
-            padding: 25px;
+            padding: 28px;
             border-radius: 18px;
             border: 4px solid #FFD700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             box-shadow: 0 6px 20px rgba(255,215,0,0.3);
         }
         .sura-title {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #0a1628;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-family: 'Amiri', serif;
             font-weight: 700;
             border-bottom: 3px solid #FFD700;
-            padding-bottom: 12px;
+            padding-bottom: 14px;
         }
         .basmala {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-family: 'Amiri', serif;
             color: #0a1628;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-weight: 700;
         }
         .ayat-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
         }
         .ayah-box {
             background: #fff;
             border: 3px solid #0a1628;
             border-radius: 12px;
-            padding: 14px 18px;
-            font-size: 1.3rem;
-            line-height: 2.3;
+            padding: 16px 20px;
+            font-size: 1.4rem;
+            line-height: 2.4;
             font-family: 'Amiri', serif;
             color: #0a1628;
             box-shadow: 0 3px 12px rgba(0,0,0,0.15);
@@ -414,23 +407,22 @@
             display: inline-block;
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             color: #FFD700;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
             text-align: center;
             border-radius: 50%;
-            font-size: 0.85rem;
-            margin-right: 8px;
+            font-size: 0.9rem;
+            margin-right: 10px;
             font-family: 'Cairo';
             font-weight: 900;
         }
-        
         .page-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 15px;
-            padding: 12px;
+            margin-top: 18px;
+            padding: 14px;
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
             border-radius: 12px;
             border: 3px solid #FFD700;
@@ -438,13 +430,13 @@
         .page-btn {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a1628;
-            padding: 9px 22px;
+            padding: 11px 26px;
             border: none;
             border-radius: 10px;
             font-weight: 900;
             cursor: pointer;
             font-family: 'Cairo';
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: 0.3s;
         }
         .page-btn:hover { transform: scale(1.05); }
@@ -454,36 +446,34 @@
         }
         .page-info {
             color: #FFD700;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 900;
         }
-        
         .content-item {
             background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
             color: #0a1628;
-            padding: 18px;
+            padding: 20px;
             border-radius: 15px;
             border: 3px solid #FFD700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             box-shadow: 0 4px 15px rgba(255,215,0,0.2);
         }
         .content-text {
-            font-size: 1.15rem;
-            line-height: 2.1;
+            font-size: 1.2rem;
+            line-height: 2.2;
             font-family: 'Amiri', serif;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
         .content-source {
             color: #1a2942;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 900;
         }
-        
         .salah-times {
             background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
             color: #0a1628;
-            padding: 25px;
+            padding: 28px;
             border-radius: 15px;
             border: 4px solid #FFD700;
             box-shadow: 0 6px 20px rgba(255,215,0,0.3);
@@ -491,13 +481,12 @@
         .salah-item {
             display: flex;
             justify-content: space-between;
-            padding: 15px;
+            padding: 17px;
             border-bottom: 2px solid #0a1628;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
         }
         .salah-item:last-child { border: none; }
-        
         .bottom-nav {
             display: none;
             position: fixed;
@@ -506,7 +495,7 @@
             right: 0;
             background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
             border-top: 3px solid #FFD700;
-            padding: 8px 0;
+            padding: 10px 0;
             justify-content: space-around;
             z-index: 998;
             box-shadow: 0 -3px 15px rgba(255,215,0,0.3);
@@ -514,47 +503,45 @@
         .nav-item {
             text-align: center;
             color: #FFD700;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             cursor: pointer;
-            padding: 5px 8px;
+            padding: 6px 10px;
             font-weight: 700;
             transition: 0.3s;
         }
         .nav-item:hover { transform: scale(1.1); }
         .nav-item.active { color: #fff; }
         .nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 3px;
+            font-size: 1.6rem;
+            margin-bottom: 4px;
         }
-        
         #logoutBtn {
             background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
             color: white;
-            margin: 15px auto;
-            max-width: 220px;
+            margin: 18px auto;
+            max-width: 240px;
             display: block;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px;
+            font-size: 15px;
             font-weight: 900;
             border: 3px solid #8B0000;
+            border-radius: 12px;
+            cursor: pointer;
         }
-        
         @media (max-width: 768px) {
             .welcome-card {
-                flex-direction: column;
-                padding: 30px 25px;
-                max-width: 450px;
+                padding: 30px 20px;
+                max-width: 95%;
             }
             .welcome-card img {
-                width: 140px;
-                height: 140px;
+                width: 220px;
+                height: 220px;
             }
-            .welcome-text { text-align: center; }
-            .welcome-text h1 { font-size: 1.7rem; }
-            .welcome-text h2 { font-size: 1.1rem; }
-            .suras-list { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-            .ayah-box { font-size: 1.1rem; }
-            .ayat-container { gap: 10px; }
+            .welcome-card h1 { font-size: 2rem; }
+            .welcome-card h2 { font-size: 1.2rem; }
+            .suras-list { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+            .ayah-box { font-size: 1.2rem; }
+            .ayat-container { gap: 12px; }
         }
     </style>
 </head>
@@ -571,7 +558,6 @@
             <button class="welcome-btn" onclick="showRegister()">تسجيل الدخول</button>
         </div>
     </div>
-    
     <div id="register">
         <div class="register-box">
             <h2>🕌 تسجيل البيانات</h2>
@@ -622,11 +608,24 @@
                 <input type="email" id="email" placeholder="example@email.com" onblur="checkEmail()">
                 <div class="error" id="emailError">بريد إلكتروني صحيح مطلوب</div>
                 <div class="email-verify" id="emailVerify">
-                    <p>📧 تم إرسال كود التحقق لبريدك الإلكتروني</p>
+                    <p>📧 تم إرسال كود التحقق: 123456</p>
                     <div class="verify-code">
-
+                        <input type="text" id="verifyCode" placeholder="000000" maxlength="6">
+                        <button class="verify-btn" onclick="verifyEmail()">تحقق</button>
+                    </div>
                 </div>
-            <button class="register-btn" onclick="validateAndRegister()">دخول الموسوعة</button>
+            </div>
+            <div class="form-group">
+                <label>كلمة السر *</label>
+                <input type="password" id="password" placeholder="6 أحرف على الأقل">
+                <div class="error" id="passError">كلمة السر 6 أحرف على الأقل</div>
+            </div>
+            <div class="form-group">
+                <label>تأكيد كلمة السر *</label>
+                <input type="password" id="confirmPass" placeholder="أعد كتابة كلمة السر">
+                <div class="error" id="confirmError">كلمة السر غير متطابقة</div>
+            </div>
+            <button class="register-btn" id="registerBtn" onclick="validateAndRegister()">دخول الموسوعة</button>
         </div>
     </div>
     <nav class="navbar" id="navbar">
@@ -646,7 +645,7 @@
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    المصحف الشريف كامل 114 سورة - 6236 آية. السور المكية 86 سورة والسور المدنية 28 سورة. من الفاتحة إلى الناس. الفاتحة، البقرة، آل عمران، النساء، المائدة، الأنعام، الأعراف، الكهف، مريم، يس، الرحمن، الواقعة، الملك، الإخلاص، الفلق، الناس
+                    المصحف الشريف كامل 114 سورة - 6236 آية. السور المكية 86 سورة والسور المدنية 28 سورة. من الفاتحة إلى الناس. أهم السور: البقرة، آل عمران، الكهف، مريم، يس، الرحمن، الواقعة، الملك
                 </div>
                 <button class="card-btn" onclick="openMushaf()">فتح المصحف الشريف</button>
             </div>
@@ -656,7 +655,7 @@
                     <div class="card-icon">🤲</div>
                 </div>
                 <div class="card-desc">
-                    أذكار الصباح 30 ذكر، أذكار المساء 30 ذكر، أذكار النوم 15 ذكر، أذكار الاستيقاظ 5 أذكار، أذكار الصلاة 20 ذكر، أذكار الخروج من المنزل، دخول المسجد، السفر، الطعام، لبس الثوب الجديد
+                    أذكار الصباح 30 ذكر، أذكار المساء 30 ذكر، أذكار النوم 15 ذكر، أذكار الاستيقاظ 5 أذكار، أذكار الصلاة 20 ذكر، أذكار الخروج من المنزل، دخول المسجد، السفر، الطعام، اللباس
                 </div>
                 <button class="card-btn" onclick="openAzkar()">فتح الأذكار</button>
             </div>
@@ -666,7 +665,7 @@
                     <div class="card-icon">📖</div>
                 </div>
                 <div class="card-desc">
-                    صحيح البخاري 7563 حديث، صحيح مسلم 3033 حديث، الأربعين النووية 42 حديث، رياض الصالحين 1903 حديث، سنن الترمذي، سنن أبي داود، سنن النسائي، سنن ابن ماجه، موطأ مالك
+                    صحيح البخاري 7563 حديث، صحيح مسلم 3033 حديث، الأربعين النووية 42 حديث، رياض الصالحين 1903 حديث، سنن الترمذي، سنن أبي داود، سنن النسائي، سنن ابن ماجه
                 </div>
                 <button class="card-btn" onclick="openHadith()">تصفح الأحاديث</button>
             </div>
@@ -676,7 +675,7 @@
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    الفجر، الشروق، الظهر، العصر، المغرب، العشاء. مع اتجاه القبلة، التاريخ الهجري والميلادي، الأذان التلقائي، أوقات الصلاة حسب موقعك، منبه الصلاة
+                    الفجر، الشروق، الظهر، العصر، المغرب، العشاء. مع اتجاه القبلة، التاريخ الهجري والميلادي، الأذان التلقائي، أوقات الصلاة حسب موقعك
                 </div>
                 <button class="card-btn" onclick="openSalah()">عرض المواقيت</button>
             </div>
@@ -686,7 +685,7 @@
                     <div class="card-icon">📜</div>
                 </div>
                 <div class="card-desc">
-                    أحكام الطهارة: الوضوء، الغسل، التيمم، المسح على الخفين. أحكام الصلاة: الشروط، الأركان، الواجبات، السنن، المبطلات، سجود السهو. أحكام الزكاة، الصوم، الحج، البيوع، النكاح، الطلاق، الميراث
+                    أحكام الطهارة: الوضوء، الغسل، التيمم، المسح على الخفين. أحكام الصلاة: الشروط، الأركان، الواجبات، السنن، المبطلات، سجود السهو. أحكام الزكاة، الصوم، الحج، البيوع، النكاح، الطلاق
                 </div>
                 <button class="card-btn" onclick="openFiqh()">فتح الفقه</button>
             </div>
@@ -716,4 +715,82 @@
                 <h2 id="currentSuraName"></h2>
                 <div></div>
             </div>
-            <div                    
+            <div class="sura-content" id="suraContent"></div>
+            <div class="page-controls">
+                <button class="page-btn" id="prevBtn" onclick="prevPage()">← السابق</button>
+                <div class="page-info" id="pageInfo"></div>
+                <button class="page-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
+            </div>
+        </div>
+        <div id="azkarPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2>📿 الأذكار الشاملة</h2>
+                <div></div>
+            </div>
+            <div id="azkarList"></div>
+        </div>
+        <div id="hadithPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2>📚 الأحاديث النبوية</h2>
+                <div></div>
+            </div>
+            <div id="hadithList"></div>
+        </div>
+        <div id="salahPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2>🕋 مواقيت الصلاة</h2>
+                <div></div>
+            </div>
+            <div class="salah-times" id="salahTimes"></div>
+        </div>
+        <div id="fiqhPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2>⚖️ الفقه الإسلامي</h2>
+                <div></div>
+            </div>
+            <div id="fiqhList"></div>
+        </div>
+        <div id="seerahPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2>🌙 السيرة النبوية</h2>
+                <div></div>
+            </div>
+            <div id="seerahList"></div>
+        </div>
+    </div>
+    <div class="bottom-nav" id="bottomNav">
+        <div class="nav-item active" onclick="showSection('main')">
+            <div class="nav-icon">🏠</div>
+            <div>الرئيسية</div>
+        </div>
+        <div class="nav-item" onclick="openAzkar()">
+            <div class="nav-icon">📿</div>
+            <div>الأذكار</div>
+        </div>
+        <div class="nav-item" onclick="openHadith()">
+            <div class="nav-icon">📚</div>
+            <div>الحديث</div>
+        </div>
+        <div class="nav-item" onclick="openSalah()">
+            <div class="nav-icon">🕋</div>
+            <div>الصلاة</div>
+        </div>
+        <div class="nav-item" onclick="openFiqh()">
+            <div class="nav-icon">⚖️</div>
+            <div>الفقه</div>
+        </div>
+    <script>
+        const suras = [
+            {num: 1, name: "الفاتحة", ayahs: 7, type: "مكية"}, {num: 2, name: "البقرة", ayahs: 286, type: "مدنية"},
+            {num: 3, name: "آل عمران", ayahs: 200, type: "مدنية"}, {num: 4, name: "النساء", ayahs: 176, type: "مدنية"},
+            {num: 5, name: "المائدة", ayahs: 120, type: "مدنية"}, {num: 6, name: "الأنعام", ayahs: 165, type: "مكية"},
+            {num: 7, name: "الأعراف", ayahs: 206, type: "مكية"}, {num: 8, name: "الأنفال", ayahs: 75, type: "مدنية"},
+            {num: 9, name: "التوبة", ayahs: 129, type: "مدنية"}, {num: 10, name: "يونس", ayahs: 109, type: "مكية"},
+            {num: 11, name: "هود", ayahs: 123, type: "مكية"}, {num: 12, name: "يوسف", ayahs: 111, type: "مكية"},
+            {num: 13, name: "الرعد", ayahs: 43, type: "مدنية"}, {num: 14, name: "إبراهيم", ayahs: 52, type: "مكية"},
+            {num: 15, name: "الحجر", ayahs: 99, type: "مكية"}, {num: 16, name: "النحل", ayahs:
