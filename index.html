@@ -2,191 +2,95 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>👑 موسوعة الحضارة المصرية الملكية 👑</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الدينية الملكية</title>
     <style>
-        :root {
-            --royal-navy: #0A1931;
-            --royal-gold: #FFD700;
-            --royal-gold-dark: #B8860B;
-            --royal-blue: #185ADB;
-            --royal-white: #F0F0F0;
-            --royal-silver: #C0C0C0;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
+            background: linear-gradient(135deg, #0d4f3c 0%, #1a6b4d 50%, #0d4f3c 100%);
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, var(--royal-navy) 0%, #16213E 50%, var(--royal-navy) 100%);
-            color: var(--royal-white);
             min-height: 100vh;
-            overflow-x: hidden
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        .container { max-width: 1400px; margin: 0 auto; padding: 20px }
-        .welcome-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--royal-navy) 0%, #0F3460 100%);
-            display: flex; justify-content: center; align-items: center; z-index: 9999
+        .container {
+            background: rgba(0,0,0,0.75);
+            border: 4px solid #FFD700;
+            border-radius: 25px;
+            padding: 40px 30px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255,215,0,0.6);
         }
-        .welcome-content {
-            text-align: center; padding: 60px; border-radius: 30px;
-            background: rgba(10, 25, 49, 0.95);
-            border: 8px solid var(--royal-gold);
-            box-shadow: 0 0 80px rgba(255, 215, 0, 0.4);
-            max-width: 900px; width: 90%
+        .logo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            margin: 0 auto 25px;
+            padding: 5px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            box-shadow: 0 0 30px #FFD700;
         }
-        .welcome-frame {
-            width: 280px; height: 280px; margin: 0 auto 30px;
-            border-radius: 50%; padding: 12px;
-            background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark), var(--royal-gold));
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.6)
+        .logo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0d4f3c;
         }
-        .welcome-frame img {
-            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-            border: 6px solid var(--royal-navy)
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FFD700;
+            margin-bottom: 5px;
         }
-        .welcome-title {
-            font-family: 'Amiri', serif; font-size: 3.5em; font-weight: 900;
-            color: var(--royal-gold); margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8)
+        h2 {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 25px;
         }
-        .welcome-subtitle {
-            font-size: 1.8em; color: var(--royal-silver); margin-bottom: 40px;
-            line-height: 1.6
+        p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: #f5f5f5;
+            margin-bottom: 35px;
         }
-        .welcome-btn {
-            background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark));
-            color: var(--royal-navy); border: none; padding: 20px 60px;
-            font-size: 1.5em; font-weight: 900; border-radius: 50px; cursor: pointer;
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
-            transition: all 0.3s ease
-        }
-        .welcome-btn:hover {
-            transform: translateY(-5px); box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6)
-        }
-        #register {
-            display: none; min-height: 100vh; padding: 40px 20px;
-            background: linear-gradient(135deg, var(--royal-navy) 0%, #0F3460 100%)
-        }
-        .register-box {
-            max-width: 600px; margin: 0 auto; background: rgba(10, 25, 49, 0.95);
-            padding: 50px; border-radius: 25px; border: 4px solid var(--royal-gold);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3)
-        }
-        .register-box h2 {
-            font-family: 'Amiri', serif; font-size: 2.8em; color: var(--royal-gold);
-            text-align: center; margin-bottom: 40px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.6)
-        }
-        .form-group { margin-bottom: 25px }
-        .form-group label {
-            display: block; color: var(--royal-gold); font-weight: 700;
-            margin-bottom: 10px; font-size: 1.2em
-        }
-        .form-group input, .form-group select {
-            width: 100%; padding: 15px 20px; border-radius: 12px;
-            border: 2px solid var(--royal-gold-dark); background: rgba(24, 90, 219, 0.1);
-            color: var(--royal-white); font-size: 1.1em; font-family: 'Cairo', sans-serif;
-            transition: all 0.3s ease
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none; border-color: var(--royal-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); background: rgba(24, 90, 219, 0.2)
-        }
-        .form-group input::placeholder { color: rgba(192, 192, 192, 0.6) }
-        .error { color: #FF6B6B; font-size: 0.9em; margin-top: 5px; display: none }
-        .error.show { display: block }
-        .register-btn {
-            width: 100%; background: linear-gradient(45deg, var(--royal-gold), var(--royal-gold-dark));
-            color: var(--royal-navy); border: none; padding: 18px;
-            font-size: 1.4em; font-weight: 900; border-radius: 15px; cursor: pointer;
-            margin-top: 20px; box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
-            transition: all 0.3s ease
-        }
-        .register-btn:hover {
-            transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6)
-        }
-        #main { display: none }
-        .hidden { display: none !important }
-        @media (max-width: 768px) {
-            .welcome-title { font-size: 2.2em }
-            .welcome-subtitle { font-size: 1.3em }
-            .welcome-frame { width: 200px; height: 200px }
-            .register-box { padding: 30px 20px }
+        .btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #0d4f3c;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255,215,0,0.5);
         }
     </style>
 </head>
 <body>
-    <div class="welcome-screen" id="welcome">
-        <div class="welcome-content">
-            <div class="welcome-frame">
-                <img src="https://i.ibb.co/7jXqH5z/pharaoh.jpg" alt="الحضارة المصرية">
-            </div>
-            <h1 class="welcome-title">👑 موسوعة الحضارة المصرية الملكية 👑</h1>
-            <p class="welcome-subtitle">رحلة عبر 7000 سنة من المجد والحضارة<br>من عصر الفراعنة إلى العصر الحديث</p>
-            <button class="welcome-btn" onclick="showRegister()">الدخول للموسوعة</button>
+    <div class="container">
+        <div class="logo-frame">
+            <img src="king.jpg" alt="KING">
         </div>
-    <div id="register">
-        <div class="register-box">
-            <h2>👑 تسجيل الدخول الملكي 👑</h2>
-            <div class="form-group">
-                <label>الاسم الكامل *</label>
-                <input type="text" id="fullName" placeholder="ادخل اسمك الثلاثي">
-                <div class="error" id="nameError">الاسم مطلوب</div>
-            </div>
-            <div class="form-group">
-                <label>العمر *</label>
-                <input type="number" id="age" placeholder="ادخل عمرك">
-                <div class="error" id="ageError">العمر مطلوب ويجب أن يكون 13+ سنة</div>
-            </div>
-            <div class="form-group">
-                <label>الجنس *</label>
-                <select id="gender">
-                    <option value="">اختر الجنس</option>
-                    <option value="male">ذكر</option>
-                    <option value="female">أنثى</option>
-                </select>
-                <div class="error" id="genderError">الجنس مطلوب</div>
-            </div>
-            <div class="form-group">
-                <label>البريد الإلكتروني *</label>
-                <input type="email" id="email" placeholder="example@email.com">
-                <div class="error" id="emailError">بريد إلكتروني صحيح مطلوب</div>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور *</label>
-                <input type="password" id="password" placeholder="8 أحرف على الأقل">
-                <div class="error" id="passError">كلمة المرور 8 أحرف على الأقل</div>
-            </div>
-            <button class="register-btn" onclick="register()">تسجيل الدخول 👑</button>
-        </div>
-    <div id="main">
-        <div class="container">
-            <h1 style="text-align:center;color:var(--royal-gold);font-size:3em;margin:40px 0">تم الدخول بنجاح 👑</h1>
-            <p style="text-align:center;font-size:1.5em">الموسوعة الكاملة قيد التطوير</p>
-        </div>
+        
+        <h1>👑 الموسوعة الدينية 👑</h1>
+        <h2>الملكية العالمية</h2>
+        
+        <p>
+            رحلة إيمانية شاملة<br>
+            في علوم القرآن الكريم والسنة النبوية<br>
+            والسيرة العطرة والتاريخ الإسلامي
+        </p>
+        
+        <button class="btn" onclick="alert('قريباً بإذن الله - جاري بناء المحتوى')">
+            الدخول للموسوعة
+        </button>
     </div>
-    <script>
-        function showRegister() {
-            document.getElementById('welcome').style.display = 'none';
-            document.getElementById('register').style.display = 'block';
-        }
-        function register() {
-            let valid = true;
-            const name = document.getElementById('fullName').value.trim();
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.getElementById('gender').value;
-            const email = document.getElementById('email').value.trim();
-            const pass = document.getElementById('password').value;
-            
-            document.querySelectorAll('.error').forEach(e => e.classList.remove('show'));
-            
-            if (!name) {
-                document.getElementById('nameError').classList.add('show');
-                valid = false;
-            }
-            if (!age || age < 13) {
-                document.getElementById('ageError').classList.add('show');
-                valid = false;
-            }
-            if (!gender) {
-                document.getElementById('genderError').classList.add('
+</body>
+</html>
