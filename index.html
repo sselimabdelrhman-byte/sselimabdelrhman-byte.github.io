@@ -14,7 +14,6 @@
             background-color: #051a10;
             color: #FFD700;
             min-height: 100vh;
-            padding-top: 70px;
         }
         body::before {
             content: '';
@@ -23,21 +22,148 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 15, 8, 0.92);
+            background: rgba(0, 15, 8, 0.93);
             z-index: -1;
         }
 
-       .navbar {
+        /* صفحة الترحيب */
+        #welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .welcome-card {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 4px solid #FFD700;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+        .welcome-card img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            box-shadow: 0 0 25px #FFD700;
+            margin-bottom: 20px;
+        }
+        .welcome-card h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+        .welcome-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.8;
+        }
+        .welcome-card p {
+            color: #FFD700;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+        .welcome-btn {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Cairo';
+            transition: 0.3s;
+        }
+        .welcome-btn:hover { transform: scale(1.05); }
+
+        /* تسجيل البيانات */
+        #register {
+            display: none;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .register-box {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 30px 25px;
+            border-radius: 18px;
+            border: 3px solid #FFD700;
+            max-width: 450px;
+            width: 100%;
+        }
+        .register-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #FFD700;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            color: #FFD700;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 11px;
+            background: #000;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            font-family: 'Cairo';
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #FFA500;
+            box-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        .error {
+            color: #ff4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            font-family: 'Cairo';
+        }
+
+        /* الناف بار */
+        .navbar {
+            display: none;
             background: rgba(0, 0, 0, 0.98);
-            padding: 10px 0;
-            border-bottom: 3px solid #FFD700;
+            padding: 8px 0;
+            border-bottom: 2px solid #FFD700;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 999;
-            box-shadow: 0 2px 15px rgba(255,215,0,0.4);
+            box-shadow: 0 2px 10px rgba(255,215,0,0.3);
         }
-       .nav-container {
+        .nav-container {
             width: 95%;
             max-width: 1400px;
             margin: 0 auto;
@@ -45,399 +171,442 @@
             justify-content: space-between;
             align-items: center;
         }
-       .logo {
-            font-size: 1.3rem;
+        .logo {
+            font-size: 1rem;
             font-weight: bold;
-            text-shadow: 0 0 10px #FFD700;
+            text-shadow: 0 0 8px #FFD700;
         }
-       .user-info {
+        .user-info {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 0.8rem;
         }
-       .user-info img {
-            width: 35px;
-            height: 35px;
+        .user-info img {
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             border: 2px solid #FFD700;
         }
 
-       .container {
+        .container {
+            display: none;
             width: 95%;
             max-width: 1400px;
-            margin: 20px auto;
-            padding: 0 10px;
+            margin: 70px auto 70px;
+            padding: 0 8px;
         }
 
-        /* تسجيل الدخول */
-        #login {
-            display: flex;
-            min-height: calc(100vh - 100px);
-            align-items: center;
-            justify-content: center;
-        }
-       .login-box {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            border: 3px solid #FFD700;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-       .login-box h1 { font-size: 1.6rem; margin-bottom: 20px; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background: #000;
-            border: 2px solid #FFD700;
-            border-radius: 10px;
-            color: white;
-            font-size: 15px;
-            font-family: 'Cairo';
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 12px;
-            font-family: 'Cairo';
-        }
+        #main { display: block; }
 
-        /* المحتوى الرئيسي */
-        #main { display: none }
-
-        /* الكروت الرئيسية زي السكرين */
-       .main-card {
+        .main-card {
             background: rgba(255, 250, 240, 0.98);
             color: #0a4d2e;
-            padding: 25px;
-            border-radius: 15px;
+            padding: 18px;
+            border-radius: 14px;
             border: 3px solid #FFD700;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
-            transition: 0.3s;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
         }
-       .main-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(255,215,0,0.5);
-        }
-       .card-header {
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
-       .card-title {
-            font-size: 1.4rem;
+        .card-title {
+            font-size: 1.1rem;
             font-weight: bold;
             color: #0a4d2e;
         }
-       .card-icon { font-size: 2rem; }
-       .card-desc {
+        .card-icon { font-size: 1.6rem; }
+        .card-desc {
             color: #1a5c3a;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+            line-height: 1.7;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
         }
-       .card-btn {
+        .card-btn {
             background: #0a4d2e;
             color: #FFD700;
-            padding: 12px 30px;
+            padding: 9px 20px;
             border: 2px solid #0a4d2e;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 9px;
+            font-size: 0.9rem;
             font-weight: bold;
             cursor: pointer;
             width: 100%;
             font-family: 'Cairo';
         }
-       .card-btn:hover {
-            background: #FFD700;
-            color: #0a4d2e;
-        }
 
-        /* صفحة المصحف */
-        #mushafPage { display: none }
-       .mushaf-header {
+        #mushafPage, #azkarPage, #hadithPage, #salahPage { display: none; }
+        .page-header {
             background: rgba(0, 0, 0, 0.95);
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid #FFD700;
-            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-       .back-btn {
+        .back-btn {
             background: #FFD700;
             color: #000;
-            padding: 8px 20px;
+            padding: 6px 16px;
             border: none;
-            border-radius: 8px;
+            border-radius: 7px;
             font-weight: bold;
             cursor: pointer;
             font-family: 'Cairo';
+            font-size: 0.85rem;
         }
 
-        /* قائمة السور */
-       .suras-list {
+        .suras-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 9px;
+            margin-bottom: 12px;
         }
-       .sura-item {
+        .sura-item {
             background: rgba(0, 0, 0, 0.95);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
             border: 2px solid #FFD700;
             text-align: center;
             cursor: pointer;
             transition: 0.2s;
         }
-       .sura-item:hover {
+        .sura-item:hover {
             background: #FFD700;
             color: #000;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
-       .sura-num {
-            font-size: 1.5rem;
+        .sura-num {
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
-       .sura-name {
-            font-size: 0.95rem;
+        .sura-name {
+            font-size: 0.85rem;
             font-family: 'Amiri', serif;
         }
 
-        /* صفحة قراءة السورة */
-        #suraPage { display: none }
-       .sura-content {
+        #suraPage { display: none; }
+        .sura-content {
             background: rgba(255, 250, 240, 0.98);
             color: #0a1f14;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 14px;
             border: 3px solid #FFD700;
-            margin-bottom: 20px;
-            min-height: 500px;
+            margin-bottom: 12px;
         }
-       .sura-title {
+        .sura-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: #0a4d2e;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             font-family: 'Amiri', serif;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 15px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
         }
-       .ayah {
-            font-size: 1.5rem;
-            line-height: 2.5;
-            margin-bottom: 20px;
+        .basmala {
+            text-align: center;
+            font-size: 1.3rem;
             font-family: 'Amiri', serif;
-            text-align: justify;
+            color: #0a4d2e;
+            margin-bottom: 18px;
+        }
+        
+        /* الآيات جنب بعض في براويز */
+        .ayat-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .ayah-box {
+            background: #fff;
+            border: 2px solid #0a4d2e;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 1.2rem;
+            line-height: 2.2;
+            font-family: 'Amiri', serif;
             color: #0a1f14;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex: 0 1 auto;
+            max-width: 100%;
         }
-       .ayah-num {
+        .ayah-num {
             display: inline-block;
             background: #0a4d2e;
             color: #FFD700;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
             text-align: center;
             border-radius: 50%;
-            font-size: 0.9rem;
-            margin: 0 5px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            font-family: 'Cairo';
         }
-       .page-controls {
+        
+        .page-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 12px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.95);
-            border-radius: 12px;
+            border-radius: 10px;
             border: 2px solid #FFD700;
         }
-       .page-btn {
+        .page-btn {
             background: #FFD700;
             color: #000;
-            padding: 10px 25px;
+            padding: 7px 18px;
             border: none;
-            border-radius: 8px;
+            border-radius: 7px;
             font-weight: bold;
             cursor: pointer;
             font-family: 'Cairo';
+            font-size: 0.85rem;
         }
-       .page-btn:disabled {
+        .page-btn:disabled {
             opacity: 0.3;
             cursor: not-allowed;
         }
-       .page-info {
+        .page-info {
             color: #FFD700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
         }
 
-        /* الناف بار السفلي زي السكرين */
-       .bottom-nav {
+        .azkar-item, .hadith-item {
+            background: rgba(255, 250, 240, 0.98);
+            color: #0a1f14;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+            margin-bottom: 10px;
+        }
+        .azkar-text, .hadith-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            font-family: 'Amiri', serif;
+            margin-bottom: 8px;
+        }
+        .azkar-count, .hadith-source {
+            color: #0a4d2e;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .salah-times {
+            background: rgba(255, 250, 240, 0.98);
+            color: #0a1f14;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+        }
+        .salah-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #0a4d2e;
+            font-size: 1rem;
+        }
+        .salah-item:last-child { border: none; }
+
+        .bottom-nav {
+            display: none;
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: rgba(0, 0, 0, 0.98);
-            border-top: 3px solid #FFD700;
-            padding: 10px 0;
-            display: flex;
+            border-top: 2px solid #FFD700;
+            padding: 6px 0;
             justify-content: space-around;
             z-index: 998;
         }
-       .nav-item {
+        .nav-item {
             text-align: center;
             color: #FFD700;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 3px 6px;
         }
-       .nav-item.active {
-            color: #fff;
-        }
-       .nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 3px;
+        .nav-item.active { color: #fff; }
+        .nav-icon {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
         }
 
         #logoutBtn {
             background: #8B0000;
             color: white;
-            margin: 20px auto;
-            max-width: 250px;
+            margin: 12px auto;
+            max-width: 200px;
             display: block;
-            padding: 10px;
-            font-size: 14px;
+            padding: 8px;
+            font-size: 12px;
         }
 
         @media (max-width: 768px) {
-           .suras-list { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-           .ayah { font-size: 1.2rem; }
+            .suras-list { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); }
+            .ayah-box { font-size: 1rem; }
+            .ayat-container { gap: 8px; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- صفحة الترحيب -->
+    <div id="welcome">
+        <div class="welcome-card">
+            <img src="king.jpg" alt="Al King">
+            <h1>مرحباً بك في موسوعة Al King</h1>
+            <h2>أهلاً وسهلاً بك ضيفنا الكريم</h2>
+            <p>
+                نرحب بك في أكبر موسوعة إسلامية شاملة<br>
+                القرآن الكريم - الأذكار - الأحاديث - مواقيت الصلاة<br>
+                سجل بياناتك الآن لتبدأ رحلتك الإيمانية معنا
+            </p>
+            <button class="welcome-btn" onclick="showRegister()">تسجيل الدخول</button>
+        </div>
+    </div>
+
+    <!-- صفحة التسجيل -->
+    <div id="register">
+        <div class="register-box">
+            <h2>🕌 تسجيل البيانات</h2>
+            <div class="form-group">
+                <label>الاسم الكامل *</label>
+                <input type="text" id="fullName" placeholder="اكتب اسمك">
+                <div class="error" id="nameError">الاسم مطلوب</div>
+            </div>
+            <div class="form-group">
+                <label>العمر *</label>
+                <input type="number" id="age" placeholder="كم عمرك؟" min="10" max="100">
+                <div class="error" id="ageError">العمر يجب أن يكون بين 10 و 100</div>
+            </div>
+            <div class="form-group">
+                <label>البلد *</label>
+                <select id="country">
+                    <option value="">اختر بلدك</option>
+                    <option value="مصر">مصر</option>
+                    <option value="السعودية">السعودية</option>
+                    <option value="الإمارات">الإمارات</option>
+                    <option value="الكويت">الكويت</option>
+                    <option value="قطر">قطر</option>
+                    <option value="البحرين">البحرين</option>
+                    <option value="عمان">عمان</option>
+                    <option value="الأردن">الأردن</option>
+                    <option value="فلسطين">فلسطين</option>
+                    <option value="سوريا">سوريا</option>
+                    <option value="لبنان">لبنان</option>
+                    <option value="العراق">العراق</option>
+                    <option value="المغرب">المغرب</option>
+                    <option value="الجزائر">الجزائر</option>
+                    <option value="تونس">تونس</option>
+                    <option value="ليبيا">ليبيا</option>
+                    <option value="السودان">السودان</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+                <div class="error" id="countryError">اختر بلدك</div>
+            </div>
+            <div class="form-group">
+                <label>البريد الإلكتروني *</label>
+                <input type="email" id="email" placeholder="example@email.com">
+                <div class="error" id="emailError">بريد إلكتروني صحيح مطلوب</div>
+            </div>
+            <div class="form-group">
+                <label>كلمة السر *</label>
+                <input type="password" id="password" placeholder="6 أحرف على الأقل">
+                <div class="error" id="passError">كلمة السر 6 أحرف على الأقل</div>
+            </div>
+            <div class="form-group">
+                <label>تأكيد كلمة السر *</label>
+                <input type="password" id="confirmPass" placeholder="أعد كتابة كلمة السر">
+                <div class="error" id="confirmError">كلمة السر غير متطابقة</div>
+            </div>
+            <button class="register-btn" onclick="validateAndRegister()">دخول الموسوعة</button>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">🕌 موسوعة Al King</div>
-            <div class="user-info" id="userInfo" style="display:none">
+            <div class="user-info" id="userInfo">
                 <span id="userName"></span>
                 <img src="king.jpg" alt="User">
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- تسجيل الدخول -->
-        <div id="login">
-            <div class="login-box">
-                <h1>🕌 موسوعة Al King</h1>
-                <p style="color:#FFD700;margin-bottom:20px;font-size:0.9rem">أكبر موسوعة إسلامية شاملة</p>
-                <input type="email" id="email" placeholder="البريد الإلكتروني">
-                <input type="password" id="password" placeholder="كلمة السر">
-                <button onclick="enterApp()">دخول الموسوعة</button>
-            </div>
-        </div>
-
-        <!-- الصفحة الرئيسية - كروت -->
+    <div class="container" id="container">
         <div id="main">
-            <!-- كارت المصحف -->
             <div class="main-card">
                 <div class="card-header">
-                    <div class="card-title">📖 قراءة القرآن الكريم</div>
+                    <div class="card-title">📖 المصحف الشريف</div>
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    القراءة عن طريق المصحف النصي، مع مزايا مثل عرض التجويد، وإضافة العلامات وتغيير حجم الخط، مع عرض الترجمات والتعلم بالاستماع آية بأيه مع أشهر القراء.
+                    القرآن الكريم كامل بـ 114 سورة، خط عثماني واضح، 5 آيات في كل صفحة
                 </div>
                 <button class="card-btn" onclick="openMushaf()">فتح المصحف</button>
             </div>
 
-            <!-- كارت الاستماع -->
-            <div class="main-card">
-                <div class="card-header">
-                    <div class="card-title">🎧 استماع وتنزيل</div>
-                    <div class="card-icon">🎙️</div>
-                </div>
-                <div class="card-desc">
-                    عبد الباسط عبد الصمد : مرتل<br>
-                    محمود خليل الحصري : ورش عن نافع<br>
-                    المنشاوي : المصحف المعلم
-                </div>
-                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">استكشف</button>
-            </div>
-
-            <!-- كارت الأذكار -->
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">📿 الأذكار اليومية</div>
                     <div class="card-icon">🤲</div>
                 </div>
                 <div class="card-desc">
-                    أذكار الصباح والمساء، أذكار النوم، أذكار الصلاة، أذكار بعد الصلاة، أدعية من القرآن والسنة
+                    أذكار الصباح والمساء، أذكار النوم، أذكار الصلاة، أدعية من القرآن والسنة
                 </div>
-                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">فتح الأذكار</button>
+                <button class="card-btn" onclick="openAzkar()">فتح الأذكار</button>
             </div>
 
-            <!-- كارت آية اليوم -->
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">✨ آية اليوم</div>
                     <div class="card-icon">📜</div>
                 </div>
-                <div class="card-desc" style="font-family: 'Amiri', serif; font-size: 1.2rem; text-align: center; color: #0a4d2e;">
-                    وَعَرَضْنَا جَهَنَّمَ يَوْمَئِذٍ لِّلْكَافِرِينَ عَرْضًا
-                    <br><small style="font-size: 0.8rem;">الكهف (100)</small>
+                <div class="card-desc" style="font-family: 'Amiri', serif; font-size: 1.05rem; text-align: center; color: #0a4d2e;">
+                    وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ
+                    <br><small style="font-size: 0.7rem;">الطلاق (2-3)</small>
                 </div>
             </div>
 
-            <!-- كارت الحديث -->
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">📚 الأحاديث النبوية</div>
                     <div class="card-icon">📖</div>
                 </div>
                 <div class="card-desc">
-                    صحيح البخاري، صحيح مسلم، سنن أبي داود، سنن الترمذي، سنن النسائي، سنن ابن ماجه، الأربعين النووية
+                    صحيح البخاري، صحيح مسلم، الأربعين النووية، رياض الصالحين
                 </div>
-                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">تصفح الأحاديث</button>
+                <button class="card-btn" onclick="openHadith()">تصفح الأحاديث</button>
             </div>
 
-            <!-- كارت الصلاة -->
             <div class="main-card">
                 <div class="card-header">
                     <div class="card-title">🕋 مواقيت الصلاة</div>
                     <div class="card-icon">🕌</div>
                 </div>
                 <div class="card-desc">
-                    مواقيت الصلاة حسب موقعك، اتجاه القبلة، الأذان، أدعية الصلاة، كيفية الصلاة الصحيحة
+                    مواقيت الصلاة، اتجاه القبلة، الأذان
                 </div>
-                <button class="card-btn" onclick="alert('قريباً إن شاء الله')">عرض المواقيت</button>
+                <button class="card-btn" onclick="openSalah()">عرض المواقيت</button>
             </div>
 
             <button id="logoutBtn" onclick="logout()">تسجيل خروج</button>
         </div>
 
-        <!-- صفحة المصحف - قائمة السور -->
         <div id="mushafPage">
-            <div class="mushaf-header">
+            <div class="page-header">
                 <button class="back-btn" onclick="backToMain()">← رجوع</button>
                 <h2 style="color:#FFD700">📖 المصحف الشريف</h2>
                 <div></div>
@@ -445,9 +614,8 @@
             <div class="suras-list" id="surasList"></div>
         </div>
 
-        <!-- صفحة قراءة السورة -->
         <div id="suraPage">
-            <div class="mushaf-header">
+            <div class="page-header">
                 <button class="back-btn" onclick="backToMushaf()">← رجوع</button>
                 <h2 style="color:#FFD700" id="currentSuraName"></h2>
                 <div></div>
@@ -459,165 +627,128 @@
                 <button class="page-btn" id="nextBtn" onclick="nextPage()">التالي →</button>
             </div>
         </div>
+
+        <div id="azkarPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2 style="color:#FFD700">📿 الأذكار</h2>
+                <div></div>
+            </div>
+            <div id="azkarList"></div>
+        </div>
+
+        <div id="hadithPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2 style="color:#FFD700">📚 الأحاديث</h2>
+                <div></div>
+            </div>
+            <div id="hadithList"></div>
+        </div>
+
+        <div id="salahPage">
+            <div class="page-header">
+                <button class="back-btn" onclick="backToMain()">← رجوع</button>
+                <h2 style="color:#FFD700">🕋 مواقيت الصلاة</h2>
+                <div></div>
+            </div>
+            <div class="salah-times">
+                <div class="salah-item"><span>الفجر</span><span>05:30 ص</span></div>
+                <div class="salah-item"><span>الشروق</span><span>07:00 ص</span></div>
+                <div class="salah-item"><span>الظهر</span><span>12:15 م</span></div>
+                <div class="salah-item"><span>العصر</span><span>03:30 م</span></div>
+                <div class="salah-item"><span>المغرب</span><span>06:00 م</span></div>
+                <div class="salah-item"><span>العشاء</span><span>07:30 م</span></div>
+            </div>
+        </div>
     </div>
 
-    <!-- الناف بار السفلي -->
-    <div class="bottom-nav" id="bottomNav" style="display:none">
+    <div class="bottom-nav" id="bottomNav">
         <div class="nav-item active" onclick="showSection('main')">
             <div class="nav-icon">📖</div>
             <div>القرآن</div>
         </div>
-        <div class="nav-item" onclick="alert('قريباً')">
+        <div class="nav-item" onclick="openAzkar()">
             <div class="nav-icon">📿</div>
             <div>الأذكار</div>
         </div>
-        <div class="nav-item" onclick="alert('قريباً')">
+        <div class="nav-item" onclick="openHadith()">
             <div class="nav-icon">📚</div>
-            <div>المزيد</div>
+            <div>الحديث</div>
         </div>
-        <div class="nav-item" onclick="alert('قريباً')">
+        <div class="nav-item" onclick="openSalah()">
             <div class="nav-icon">🕋</div>
             <div>الصلاة</div>
-        </div>
-        <div class="nav-item" onclick="alert('قريباً')">
-            <div class="nav-icon">🔍</div>
-            <div>استكشف</div>
         </div>
     </div>
 
     <script>
-        // بيانات السور - هنحط 114 سورة
+        // بيانات القرآن
+        const quranData = {
+            1: { // الفاتحة
+                name: "الفاتحة",
+                ayahs: [
+                    "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                    "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+                    "الرَّحْمَٰنِ الرَّحِيمِ",
+                    "مَالِكِ يَوْمِ الدِّينِ",
+                    "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+                    "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+                    "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"
+                ]
+            },
+            2: { // البقرة
+                name: "البقرة",
+                ayahs: [
+                    "الم",
+                    "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ",
+                    "الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ",
+                    "وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ",
+                    "أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
+                    "إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ",
+                    "خَتَمَ اللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰ أَبْصَارِهِمْ غِشَاوَةٌ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌ",
+                    "وَمِنَ النَّاسِ مَن يَقُولُ آمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآخِرِ وَمَا هُم بِمُؤْمِنِينَ",
+                    "يُخَادِعُونَ اللَّهَ وَالَّذِينَ آمَنُوا وَمَا يَخْدَعُونَ إِلَّا أَنفُسَهُمْ وَمَا يَشْعُرُونَ",
+                    "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ"
+                ]
+            }
+        };
+
         const suras = [
-            {num: 1, name: "الفاتحة", ayahs: 7, type: "مكية"},
-            {num: 2, name: "البقرة", ayahs: 286, type: "مدنية"},
-            {num: 3, name: "آل عمران", ayahs: 200, type: "مدنية"},
-            {num: 4, name: "النساء", ayahs: 176, type: "مدنية"},
-            {num: 5, name: "المائدة", ayahs: 120, type: "مدنية"},
-            {num: 6, name: "الأنعام", ayahs: 165, type: "مكية"},
-            {num: 7, name: "الأعراف", ayahs: 206, type: "مكية"},
-            {num: 8, name: "الأنفال", ayahs: 75, type: "مدنية"},
-            {num: 9, name: "التوبة", ayahs: 129, type: "مدنية"},
-            {num: 10, name: "يونس", ayahs: 109, type: "مكية"},
-            // هنكمل الباقي...
+            {num: 1, name: "الفاتحة", ayahs: 7},
+            {num: 2, name: "البقرة", ayahs: 286},
+            {num: 3, name: "آل عمران", ayahs: 200},
+            {num: 4, name: "النساء", ayahs: 176},
+            {num: 5, name: "المائدة", ayahs: 120},
+            {num: 6, name: "الأنعام", ayahs: 165},
+            {num: 7, name: "الأعراف", ayahs: 206},
+            {num: 8, name: "الأنفال", ayahs: 75},
+            {num: 9, name: "التوبة", ayahs: 129},
+            {num: 10, name: "يونس", ayahs: 109},
+            {num: 11, name: "هود", ayahs: 123},
+            {num: 12, name: "يوسف", ayahs: 111},
+            {num: 13, name: "الرعد", ayahs: 43},
+            {num: 14, name: "إبراهيم", ayahs: 52},
+            {num: 15, name: "الحجر", ayahs: 99},
+            {num: 16, name: "النحل", ayahs: 128},
+            {num: 17, name: "الإسراء", ayahs: 111},
+            {num: 18, name: "الكهف", ayahs: 110},
+            {num: 19, name: "مريم", ayahs: 98},
+            {num: 20, name: "طه", ayahs: 135}
         ];
 
-        let currentSura = null;
-        let currentPage = 0;
-        const ayahsPerPage = 5;
+        const azkar = [
+            {text: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", count: "مرة واحدة"},
+            {text: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ", count: "مرة واحدة"},
+            {text: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ", count: "مرة واحدة"},
+            {text: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", count: "100 مرة"},
+            {text: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", count: "10 مرات"},
+            {text: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", count: "100 مرة"}
+        ];
 
-        function enterApp() {
-            let e = document.getElementById('email').value, p = document.getElementById('password').value;
-            if (e && p) {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('main').style.display = 'block';
-                document.getElementById('bottomNav').style.display = 'flex';
-                document.getElementById('userInfo').style.display = 'flex';
-                document.getElementById('userName').innerText = e.split('@')[0];
-                window.scrollTo(0, 0);
-            } else { alert('اكتب البريد وكلمة السر يا KING') }
-        }
-
-        function logout() {
-            document.getElementById('main').style.display = 'none';
-            document.getElementById('mushafPage').style.display = 'none';
-            document.getElementById('suraPage').style.display = 'none';
-            document.getElementById('bottomNav').style.display = 'none';
-            document.getElementById('userInfo').style.display = 'none';
-            document.getElementById('login').style.display = 'flex';
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-        }
-
-        function openMushaf() {
-            document.getElementById('main').style.display = 'none';
-            document.getElementById('mushafPage').style.display = 'block';
-            loadSuras();
-            window.scrollTo(0, 0);
-        }
-
-        function backToMain() {
-            document.getElementById('mushafPage').style.display = 'none';
-            document.getElementById('suraPage').style.display = 'none';
-            document.getElementById('main').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function backToMushaf() {
-            document.getElementById('suraPage').style.display = 'none';
-            document.getElementById('mushafPage').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function loadSuras() {
-            const list = document.getElementById('surasList');
-            list.innerHTML = '';
-            suras.forEach(sura => {
-                const div = document.createElement('div');
-                div.className = 'sura-item';
-                div.innerHTML = `
-                    <div class="sura-num">${sura.num}</div>
-                    <div class="sura-name">${sura.name}</div>
-                    <small>${sura.ayahs} آية</small>
-                `;
-                div.onclick = () => openSura(sura);
-                list.appendChild(div);
-            });
-        }
-
-        function openSura(sura) {
-            currentSura = sura;
-            currentPage = 0;
-            document.getElementById('mushafPage').style.display = 'none';
-            document.getElementById('suraPage').style.display = 'block';
-            document.getElementById('currentSuraName').innerText = `سورة ${sura.name}`;
-            loadSuraPage();
-            window.scrollTo(0, 0);
-        }
-
-        function loadSuraPage() {
-            const content = document.getElementById('suraContent');
-            const startAyah = currentPage * ayahsPerPage + 1;
-            const endAyah = Math.min(startAyah + ayahsPerPage - 1, currentSura.ayahs);
-
-            let html = `<div class="sura-title">سورة ${currentSura.name}</div>`;
-
-            // هنا هنحط الآيات الحقيقية - دلوقتي مثال
-            for(let i = startAyah; i <= endAyah; i++) {
-                html += `<div class="ayah">
-                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-                    <span class="ayah-num">${i}</span>
-                </div>`;
-            }
-
-            content.innerHTML = html;
-
-            // تحديث أزرار التنقل
-            const totalPages = Math.ceil(currentSura.ayahs / ayahsPerPage);
-            document.getElementById('prevBtn').disabled = currentPage === 0;
-            document.getElementById('nextBtn').disabled = currentPage >= totalPages - 1;
-            document.getElementById('pageInfo').innerText = `صفحة ${currentPage + 1} من ${totalPages}`;
-        }
-
-        function nextPage() {
-            const totalPages = Math.ceil(currentSura.ayahs / ayahsPerPage);
-            if (currentPage < totalPages - 1) {
-                currentPage++;
-                loadSuraPage();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function prevPage() {
-            if (currentPage > 0) {
-                currentPage--;
-                loadSuraPage();
-                window.scrollTo(0, 0);
-            }
-        }
-
-        function showSection(section) {
-            backToMain();
-        }
-    </script>
-</body>
-                                                </html>
+        const ahadith = [
+            {text: "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى", source: "صحيح البخاري"},
+            {text: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ", source: "صحيح البخاري ومسلم"},
+            {text: "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ", source: "صحيح البخاري"},
+            {text: "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ", source: "صحيح مسلم"},
+            {text: "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ
