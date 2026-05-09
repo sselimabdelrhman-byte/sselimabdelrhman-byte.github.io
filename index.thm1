@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>منصة KING - صيانة</title>
+<style>
+body{background:#0a0e27;color:#fff;font-family:sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+h1{font-size:3rem;background:linear-gradient(45deg,#38bdf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+p{font-size:1.5rem;color:#94a3b8}
+.king{font-size:5rem;margin-bottom:30px}
+</style>
+</head>
+<body>
+<div>
+<div class="king">👑</div>
+<h1>منصة KING</h1>
+<p>الموقع تحت الصيانة حالياً</p>
+<p>هنرجع قريب بشكل أقوى إن شاء الله</p>
+</div>
+</body>
+</html>
