@@ -82,31 +82,13 @@ audio{width:100%;margin-top:20px}
 <button class="btn-king" style="display:block;margin:40px auto" onclick="logout()">🚪 تسجيل خروج</button>
 </div>
 </div>
-<div id="quran" class="page hidden">
-<div class="container">
-<button class="back-btn" onclick="goHome()">← الرجوع للرئيسية</button>
-<h1>📖 القرآن الكريم</h1>
-<div class="surah-grid" id="surahGrid"></div>
-</div>
-</div>
-<div id="surahPage" class="page hidden">
-<div class="container">
-<button class="back-btn" onclick="backToSurahs()">← الرجوع للسور</button>
-<h1 id="surahTitle"></h1>
-<div class="player-section">
-<h3>🎧 اختر القارئ:</h3>
-<select id="reciterSel" onchange="changeReciter()"></select>
-<audio id="surahAudio" controls></audio>
-</div>
-<div id="ayahsContainer"></div>
-</div>
-</div>
 <div id="azkar" class="page hidden">
 <div class="container">
 <button class="back-btn" onclick="goHome()">← الرجوع للرئيسية</button>
 <h1>🤲 الأذكار</h1>
 <div class="zekr-card"><h3>سُبْحَانَ اللهِ وَبِحَمْدِهِ</h3><div class="counter-box"><button onclick="dec(this)">-</button><span>100</span><button onclick="inc(this)">+</button></div></div>
 <div class="zekr-card"><h3>أَسْتَغْفِرُ اللهَ</h3><div class="counter-box"><button onclick="dec(this)">-</button><span>100</span><button onclick="inc(this)">+</button></div></div>
+<div class="zekr-card"><h3>لَا إِلَهَ إِلَّا اللهُ</h3><div class="counter-box"><button onclick="dec(this)">-</button><span>100</span><button onclick="inc(this)">+</button></div></div>
 </div>
 </div>
 <div id="tasbeeh" class="page hidden">
@@ -133,13 +115,15 @@ audio{width:100%;margin-top:20px}
 <button class="back-btn" onclick="goHome()">← الرجوع للرئيسية</button>
 <h1>📜 الأحاديث النبوية</h1>
 <div class="zekr-card"><h3>قال رسول الله ﷺ:</h3><p style="font-size:1.3rem;line-height:2;margin:20px 0">"إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ"</p><small style="color:#94a3b8">رواه البخاري ومسلم</small></div>
+<div class="zekr-card"><h3>قال رسول الله ﷺ:</h3><p style="font-size:1.3rem;line-height:2;margin:20px 0">"مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْراً أَوْ لِيَصْمُتْ"</p><small style="color:#94a3b8">رواه البخاري</small></div>
 </div>
 </div>
 <div id="duaa" class="page hidden">
 <div class="container">
 <button class="back-btn" onclick="goHome()">← الرجوع للرئيسية</button>
 <h1>🙏 الأدعية</h1>
-<div class="zekr-card"><h3>دعاء الاستغفار</h3><p style="font-size:1.3rem;line-height:2.5">"اللَّهُمَّ أَنْتَ رَبِّي لا إِلَهَ إِلا أَنْتَ"</p></div>
+<div class="zekr-card"><h3>دعاء الاستغفار</h3><p style="font-size:1.3rem;line-height:2.5">"اللَّهُمَّ أَنْتَ رَبِّي لا إِلَهَ إِلا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ"</p></div>
+<div class="zekr-card"><h3>دعاء الهم والحزن</h3><p style="font-size:1.3rem;line-height:2.5">"اللَّهُمَّ إِنِّي عَبْدُكَ، ابْنُ عَبْدِكَ، ابْنُ أَمَتِكَ"</p></div>
 </div>
 </div>
 <div id="names" class="page hidden">
@@ -171,34 +155,9 @@ audio{width:100%;margin-top:20px}
 <div class="container">
 <button class="back-btn" onclick="goHome()">← الرجوع للرئيسية</button>
 <h1>📚 قصص الأنبياء</h1>
-<div class="zekr-card"><h3>قصة سيدنا يوسف</h3><p style="line-height:2">قصة سيدنا يوسف من أجمل القصص في القرآن الكريم...</p></div>
+<div class="zekr-card"><h3>قصة سيدنا يوسف</h3><p style="line-height:2">قصة سيدنا يوسف عليه السلام من أجمل القصص في القرآن الكريم، تظهر فيها حكمة الله وتدبيره.</p></div>
+<div class="zekr-card"><h3>قصة سيدنا موسى</h3><p style="line-height:2">قصة سيدنا موسى مع فرعون من أعظم القصص التي تبين قوة الإيمان ونصر الله لعباده.</p></div>
 </div>
 </div>
 <script>
-const surahs=['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
-const reciters=[{n:'ياسر الدوسري',s:'https://server11.mp3quran.net/yasser'},{n:'عبد الباسط عبد الصمد',s:'https://server7.mp3quran.net/basit'},{n:'مشاري العفاسي',s:'https://server8.mp3quran.net/afs'},{n:'ماهر المعيقلي',s:'https://server12.mp3quran.net/maher'},{n:'سعد الغامدي',s:'https://server7.mp3quran.net/s_gmd'},{n:'عبد الرحمن السديس',s:'https://server11.mp3quran.net/sds'}];
-const names=[['الرَّحْمَنُ','واسع الرحمة'],['الرَّحِيمُ','دائم الرحمة'],['الْمَلِكُ','المالك لكل شيء'],['الْقُدُّوسُ','المنزه عن النقائص'],['السَّلَامُ','واهب السلام'],['الْمُؤْمِنُ','واهب الأمان']];
-let currentSurah=1,tasbeehCount=0,tasbeehWords=['سبحان الله','الحمد لله','الله أكبر','لا إله إلا الله'],tasbeehIndex=0;
-function goLogin(){document.getElementById('welcome').classList.add('hidden');document.getElementById('login').classList.remove('hidden')}
-function doLogin(){const e=document.getElementById('email').value||'user@king.com';localStorage.setItem('king_email',e);localStorage.setItem('king_logged','1');document.getElementById('userName').textContent=e.split('@')[0];document.getElementById('login').classList.add('hidden');document.getElementById('main').classList.remove('hidden')}
-function goHome(){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById('main').classList.remove('hidden')}
-function openPage(id){document.getElementById('main').classList.add('hidden');document.getElementById(id).classList.remove('hidden');if(id==='sheikhs')loadSheikhs();if(id==='times')getPrayerTimes()}
-function logout(){localStorage.clear();location.reload()}
-const surahGrid=document.getElementById('surahGrid');
-surahs.forEach((name,i)=>{const d=document.createElement('div');d.className='surah-item';d.innerHTML=`<div class="num">${i+1}</div><h3>${name}</h3>`;d.onclick=()=>openSurah(i+1,name);surahGrid.appendChild(d)});
-async function openSurah(num,name){currentSurah=num;document.getElementById('quran').classList.add('hidden');document.getElementById('surahPage').classList.remove('hidden');document.getElementById('surahTitle').textContent=`سورة ${name}`;const sel=document.getElementById('reciterSel');sel.innerHTML='';reciters.forEach(r=>{const o=document.createElement('option');o.value=r.s;o.textContent=r.n;sel.appendChild(o)});changeReciter();try{const r=await fetch(`https://api.alquran.cloud/v1/surah/${num}`);const d=await r.json();const c=document.getElementById('ayahsContainer');c.innerHTML='';d.data.ayahs.forEach(a=>{c.innerHTML+=`<div class="ayah-box"><div class="ayah-text">${a.text}<span class="ayah-num">${a.numberInSurah}</span></div></div>`})}catch(e){document.getElementById('ayahsContainer').innerHTML='خطأ في التحميل'}}
-function changeReciter(){const s=document.getElementById('reciterSel').value;const a=document.getElementById('surahAudio');const n=String(currentSurah).padStart(3,'0');a.src=`${s}/${n}.mp3`}
-function backToSurahs(){document.getElementById('surahPage').classList.add('hidden');document.getElementById('quran').classList.remove('hidden')}
-function inc(b){const s=b.previousElementSibling;s.textContent=parseInt(s.textContent)+1}
-function dec(b){const s=b.nextElementSibling;const v=parseInt(s.textContent);if(v>0)s.textContent=v-1}
-function tasbeeh(){tasbeehCount++;document.getElementById('tasbeehNum').textContent=tasbeehCount;if(tasbeehCount%33===0){tasbeehIndex=(tasbeehIndex+1)%tasbeehWords.length;document.getElementById('tasbeehWord').textContent=tasbeehWords[tasbeehIndex]}}
-function resetTasbeeh(){tasbeehCount=0;tasbeehIndex=0;document.getElementById('tasbeehNum').textContent=0;document.getElementById('tasbeehWord').textContent=tasbeehWords[0]}
-function loadSheikhs(){const l=document.getElementById('sheikhsList');l.innerHTML='';reciters.forEach(r=>{const d=document.createElement('div');d.className='zekr-card';d.innerHTML=`<h3>${r.n}</h3><audio controls><source src="${r.s}/001.mp3" type="audio/mpeg"></audio>`;l.appendChild(d)})}
-const namesGrid=document.getElementById('namesGrid');
-names.forEach(([n,d])=>{const div=document.createElement('div');div.className='surah-item';div.innerHTML=`<h3 style="color:#38bdf8">${n}</h3><p>${d}</p>`;namesGrid.appendChild(div)});
-function getQibla(){document.getElementById('qiblaResult').innerHTML='🕋 اتجاه القبلة: 136° جنوب شرق'}
-async function getPrayerTimes(){try{const pos=await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej));const r=await fetch(`https://api.aladhan.com/v1/timings?latitude=${pos.coords.latitude}&longitude=${pos.coords.longitude}&method=5`);const d=await r.json();const t=d.data.timings;document.getElementById('prayerTimes').innerHTML=`<div class="zekr-card"><h3>الفجر</h3><p style="font-size:2rem">${t.Fajr}</p></div><div class="zekr-card"><h3>الظهر</h3><p style="font-size:2rem">${t.Dhuhr}</p></div><div class="zekr-card"><h3>العصر</h3><p style="font-size:2rem">${t.Asr}</p></div><div class="zekr-card"><h3>المغرب</h3><p style="font-size:2rem">${t.Maghrib}</p></div><div class="zekr-card"><h3>العشاء</h3><p style="font-size:2rem">${t.Isha}</p></div>`}catch(e){document.getElementById('prayerTimes').innerHTML='يرجى تفعيل الموقع'}}
-if(localStorage.getItem('king_logged')){document.getElementById('welcome').classList.add('hidden');document.getElementById('main').classList.remove('hidden');document.getElementById('userName').textContent=localStorage.getItem('king_email').split('@')[0]}
-</script>
-</body>
-</html>
+const surahs=['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص
